@@ -5,6 +5,7 @@ Welcome to my Reactive Portfolio repository! This is where I'm building and host
 
 ## Technologies Used
 - **Hosting Platform:** [Netlify](https://www.netlify.com/)
+- **Frontend Framework:** [React](https://react.dev/)
 - **IDE:** [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Development
