@@ -16,9 +16,9 @@ import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
 import ncsuLogo from './assets/ncsu-logo-asset.png'
-import MachineLearningPipeline from "./projects/machine-learning/MachineLearningPipeline";
-import DataProductCatalog from "./projects/data-product-catalog/DataProductCatalog";
-import SyntheaDataGeneration from "./projects/data-gen/SyntheaDataGeneration";
+import MachineLearningPipeline from "./projects/MachineLearningPipeline";
+import DataProductCatalog from "./projects/DataProductCatalog";
+import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
 
 function App() {
   // Still inside App.jsx
@@ -137,7 +137,7 @@ function App() {
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact-me">Contact Me</a></li>
+            <li><a href="#thank-you">Contact Me</a></li>
           </ul>
         </nav>
 
