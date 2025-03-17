@@ -7,6 +7,7 @@ import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
 import { FaGears } from "react-icons/fa6";
 import { LuBrainCircuit } from "react-icons/lu";
+import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
@@ -15,7 +16,9 @@ import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
 import ncsuLogo from './assets/ncsu-logo-asset.png'
-import emailjs from '@emailjs/browser'
+import MachineLearningPipeline from "./projects/machine-learning/MachineLearningPipeline";
+import DataProductCatalog from "./projects/data-product-catalog/DataProductCatalog";
+import SyntheaDataGeneration from "./projects/data-gen/SyntheaDataGeneration";
 
 function App() {
   // Still inside App.jsx
@@ -92,28 +95,32 @@ function App() {
     }, 1000);
   };
 
-  // Inside App.jsx
+  // project Components
+  const projectComponents = {
+    1: <MachineLearningPipeline />,
+    2: <DataProductCatalog />,
+    3: <SyntheaDataGeneration />,
+  };
+
+  // Data of projects
   const projectsData = [
     {
       id: 1,
       title: "Machine Learning Pipeline Exploration",
       description: "Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.",
       icon: <LuBrainCircuit />,
-      extraInfo: `Screenshots and more information coming!`
     },
     {
       id: 2,
       title: "Data Product Catalog",
       description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.",
       icon: <FaDatabase />,
-      extraInfo: `Screenshots and more information coming!`
     },
     {
       id: 3,
       title: "Synthea Data Generation",
       description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
       icon: <FaGears />,
-      extraInfo: `Screenshots and more information coming!`
     }
   ];
 
@@ -400,13 +407,25 @@ function App() {
           <div className="modal-overlay" onClick={handleCloseModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <button className="modal-close" onClick={handleCloseModal}>
-                &times; {/* This is the "X" symbol */}
+                &times;
+              </button>
+              {projectComponents[selectedProject.id] /* Render the matched component */}
+            </div>
+          </div>
+        )}
+
+
+        {/* {selectedProject && (
+          <div className="modal-overlay" onClick={handleCloseModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={handleCloseModal}>
+                &times;
               </button>
               <h2>{selectedProject.title}</h2>
               <p>{selectedProject.extraInfo}</p>
             </div>
           </div>
-        )}
+        )} */}
 
       </div>
     </>
