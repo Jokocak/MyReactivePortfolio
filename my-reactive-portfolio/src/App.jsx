@@ -4,6 +4,9 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
+import { FaDatabase } from "react-icons/fa6";
+import { FaGears } from "react-icons/fa6";
+import { LuBrainCircuit } from "react-icons/lu";
 
 // Local Imports
 import './App.css'
@@ -11,9 +14,22 @@ import profilePic from './assets/jokocak@ncsu.edu-1.jpg'
 import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
+import ncsuLogo from './assets/ncsu-logo-asset.png'
 import emailjs from '@emailjs/browser'
 
 function App() {
+  // Still inside App.jsx
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleMoreClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProject(null);
+  };
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -76,6 +92,37 @@ function App() {
     }, 1000);
   };
 
+  // Inside App.jsx
+  const projectsData = [
+    {
+      id: 1,
+      title: "Machine Learning Pipeline Exploration",
+      description: "Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.",
+      icon: <LuBrainCircuit />,
+      extraInfo: `Here is some extra info about project #1, 
+  including deeper technical details, the technologies used, 
+  challenges faced, solutions implemented, etc.`
+    },
+    {
+      id: 2,
+      title: "Data Product Catalog",
+      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.",
+      icon: <FaDatabase />,
+      extraInfo: `Here is more info about the Data Product Catalog, 
+  including specifics about the database schema, 
+  ETL pipeline design, performance benchmarks, and more.`
+    },
+    {
+      id: 3,
+      title: "Synthea Data Generation",
+      description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
+      icon: <FaGears />,
+      extraInfo: `Additional details on the synthetic data generation process, 
+  the healthcare data models, and how this aided ML testing.`
+    }
+  ];
+
+
   return (
     <>
       <div className="layout">
@@ -84,8 +131,8 @@ function App() {
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact-me">Contact Me</a></li>
@@ -102,7 +149,7 @@ function App() {
               <div className="profile-links">
                 <h2>James Kocak</h2>
                 <hr />
-                <h2>Data Science | Data Engineer</h2>
+                <h2>Data Scientist | Data Engineer</h2>
 
                 <div className="social-links">
                   <a href="https://github.com/Jokocak" target="_blank" rel="noopener noreferrer">
@@ -130,7 +177,7 @@ function App() {
             <h2>About Me</h2>
             <hr />
 
-            <div className="about-description">
+            <div className="card">
               Hi! I'm James Kocak, an aspiring Data Scientist.
               <br />
               <br />
@@ -147,9 +194,21 @@ function App() {
           <section id="education" className="section">
             <h2>Education</h2>
             <hr />
-            {/* Add your educational background here */}
 
-            
+            <div className="card education-card">
+              <img 
+                src={ncsuLogo} 
+                alt="NC State Logo" 
+                className="school-logo"
+              />
+
+              <div className="education-details">
+                <h3>North Carolina State University</h3>
+                <p>Bachelors in Computer Science</p>
+                <p>May 2025 (Expected)</p>
+                <p>GPA: 3.6 / 4.0</p>
+              </div>
+            </div>
           </section>
 
           <section id="skills" className="section">
@@ -157,7 +216,7 @@ function App() {
             <hr />
             
             <div className="skills-primary">
-              <div className="skill-card">
+              <div className="skill-card card">
                 <h3>Data Science</h3>
                 <ul>
                   <li>Pandas</li>
@@ -168,7 +227,7 @@ function App() {
                 </ul>
               </div>
 
-              <div className="skill-card">
+              <div className="card skill-card">
                 <h3>Data Engineering</h3>
                 <ul>
                   <li>Databricks</li>
@@ -181,7 +240,7 @@ function App() {
             </div>
 
             <div className="skills-secondary">
-              <div className="skill-card">
+              <div className="card skill-card">
                 <h3>Programming</h3>
                 <ul>
                   <li>Python</li>
@@ -192,7 +251,7 @@ function App() {
                 </ul>
               </div>
 
-              <div className="skill-card">
+              <div className="card skill-card">
                 <h3>Cloud & Tools</h3>
                 <ul>
                   <li>Microsoft Azure</li>
@@ -203,7 +262,7 @@ function App() {
                 </ul>
               </div>
 
-              <div className="skill-card">
+              <div className="card skill-card">
                 <h3>Machine Learning</h3>
                 <ul>
                   <li>Scikit-learn</li>
@@ -219,25 +278,26 @@ function App() {
           <section id="projects" className="section">
             <h2>Projects</h2>
             <hr />
-            
+
             <div className="projects-grid">
-              <div className="project-card">
-                <img src="/path-to-project1-image.jpg" alt="Project 1" className="project-image" />
-                <h3>Machine Learning Pipeline Exploration</h3>
-                <p>Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.</p>
-              </div>
+              {projectsData.map((project) => (
+                <div key={project.id} className="card project-card">
+                  <div className="project-icon">
+                    {project.icon}
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
 
-              <div className="project-card">
-                <img src="/path-to-project2-image.jpg" alt="Project 2" className="project-image" />
-                <h3>Data Product Catalog</h3>
-                <p>Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.</p>
-              </div>
-
-              <div className="project-card">
-                <img src="/path-to-project3-image.jpg" alt="Project 3" className="project-image" />
-                <h3>Project Title 3</h3>
-                <p>Brief description of your third project, emphasizing the primary goal or technology stack.</p>
-              </div>
+                  <div className="project-more">
+                    <button 
+                      className="verify-button"  // <-- Reuse .verify-button styling
+                      onClick={() => handleMoreClick(project)}
+                    >
+                      More
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -246,7 +306,7 @@ function App() {
             <hr />
             
             <div className="certifications-grid">
-              <div className="certification-card">
+              <div className="card certification-card">
                 <img src={databricksLogo} alt="Certification 1" className="certification-image" />
                 <h3>Databricks Certified Data Engineer Associate</h3>
 
@@ -264,7 +324,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="certification-card">
+              <div className="card certification-card">
                 <img src={microsoftLogo} alt="Certification 2" className="certification-image" />
                 <h3>Microsoft Azure AI Essentials Professional Certificate</h3>
 
@@ -287,7 +347,7 @@ function App() {
             <h2>Thank you!</h2>
             <hr />
             
-            <div className="about-description">
+            <div className="card">
               Thank you for taking the time to read my portfolio!
               <br />
               <br />
@@ -348,6 +408,20 @@ function App() {
             </div>
           </section>
         </div>
+
+        {/* Overlay logic */}
+        {selectedProject && (
+          <div className="modal-overlay" onClick={handleCloseModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={handleCloseModal}>
+                &times; {/* This is the "X" symbol */}
+              </button>
+              <h2>{selectedProject.title}</h2>
+              <p>{selectedProject.extraInfo}</p>
+            </div>
+          </div>
+        )}
+
       </div>
     </>
   )
