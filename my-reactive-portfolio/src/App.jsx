@@ -164,7 +164,7 @@ function App() {
                   <li>NumPy</li>
                   <li>Statistical Analysis</li>
                   <li>Data Visualization</li>
-                  <li>Jupyter Notebooks</li>
+                  <li>Google Colab</li>
                 </ul>
               </div>
 
@@ -196,10 +196,10 @@ function App() {
                 <h3>Cloud & Tools</h3>
                 <ul>
                   <li>Microsoft Azure</li>
-                  <li>Azure Data Factory</li>
-                  <li>Azure Synapse</li>
+                  <li>Amazon Web Services</li>
+                  <li>Google Cloud Platform</li>
                   <li>Docker</li>
-                  <li>Azure DevOps</li>
+                  <li>Jenkins</li>
                 </ul>
               </div>
 
@@ -207,9 +207,9 @@ function App() {
                 <h3>Machine Learning</h3>
                 <ul>
                   <li>Scikit-learn</li>
-                  <li>TensorFlow</li>
-                  <li>PyTorch</li>
-                  <li>MLflow</li>
+                  <li>Azure Machine Learning</li>
+                  <li>Neural Networks</li>
+                  <li>Supervised Learning</li>
                   <li>Deep Learning</li>
                 </ul>
               </div>
@@ -223,14 +223,14 @@ function App() {
             <div className="projects-grid">
               <div className="project-card">
                 <img src="/path-to-project1-image.jpg" alt="Project 1" className="project-image" />
-                <h3>Project Title 1</h3>
-                <p>Brief description of your first project, focusing on the key achievement or technology used.</p>
+                <h3>Machine Learning Pipeline Exploration</h3>
+                <p>Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.</p>
               </div>
 
               <div className="project-card">
                 <img src="/path-to-project2-image.jpg" alt="Project 2" className="project-image" />
-                <h3>Project Title 2</h3>
-                <p>Brief description of your second project, highlighting the main feature or outcome.</p>
+                <h3>Data Product Catalog</h3>
+                <p>Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.</p>
               </div>
 
               <div className="project-card">

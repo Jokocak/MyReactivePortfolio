@@ -432,6 +432,7 @@ hr {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
