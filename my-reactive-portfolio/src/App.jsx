@@ -10,7 +10,7 @@ import { LuBrainCircuit } from "react-icons/lu";
 
 // Local Imports
 import './App.css'
-import profilePic from './assets/jokocak@ncsu.edu-1.jpg'
+import profilePic from './assets/jamkocak88@gmail.com-0.jpg'
 import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
@@ -99,26 +99,21 @@ function App() {
       title: "Machine Learning Pipeline Exploration",
       description: "Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.",
       icon: <LuBrainCircuit />,
-      extraInfo: `Here is some extra info about project #1, 
-  including deeper technical details, the technologies used, 
-  challenges faced, solutions implemented, etc.`
+      extraInfo: `Screenshots and more information coming!`
     },
     {
       id: 2,
       title: "Data Product Catalog",
       description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.",
       icon: <FaDatabase />,
-      extraInfo: `Here is more info about the Data Product Catalog, 
-  including specifics about the database schema, 
-  ETL pipeline design, performance benchmarks, and more.`
+      extraInfo: `Screenshots and more information coming!`
     },
     {
       id: 3,
       title: "Synthea Data Generation",
       description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
       icon: <FaGears />,
-      extraInfo: `Additional details on the synthetic data generation process, 
-  the healthcare data models, and how this aided ML testing.`
+      extraInfo: `Screenshots and more information coming!`
     }
   ];
 
@@ -178,16 +173,7 @@ function App() {
             <hr />
 
             <div className="card">
-              Hi! I'm James Kocak, an aspiring Data Scientist.
-              <br />
-              <br />
-              I harness my expertise in Python, SQL, machine learning, and data visualization to analyze complex datasets, build predictive models, and deliver actionable insights.
-              <br />
-              <br />
-              I focus on integrating advanced analytics and scalable data solutions to empower organizations with clear, data-driven strategies and innovations.
-              <br />
-              <br />
-              I have 3+ years of experience in transforming raw data into meaningful intelligence across diverse industries.
+              I'm an aspiring data scientist with experience in Python, machine learning, and data engineering. I've built predictive models, designed robust data pipelines, and delivered actionable insights from complex datasets.
             </div>
           </section>
           
