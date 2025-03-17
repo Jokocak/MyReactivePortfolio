@@ -98,67 +98,16 @@
   justify-content: center;
 }
 
-/* Add these new styles */
 .home-section {
   padding: 2rem;
   margin-bottom: 2rem;
 }
-
-/* #home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-} */
-
-/* #about {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-#education {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-#skills {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-#projects {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-#certifications {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-#thank-you {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-#contact-me {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-} */
 
 .profile-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   max-width: 800px;
-  min-height: 800px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -263,7 +212,7 @@ hr {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 2rem 0;
 }
@@ -506,9 +455,10 @@ hr {
   .portfolio-container {
     margin-left: 0;
   }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
-
-
 
 .modal-overlay {
   position: fixed;
