@@ -538,18 +538,20 @@ hr {
 
 /* .modal-close-box {
   width: 50px;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   background: #fff;
+  background: blue;
 } */
 
 .modal-close {
-  background: transparent;
+  /* background: transparent; */
   border: none;
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
+  background: red;
 }
 
 .modal-content {

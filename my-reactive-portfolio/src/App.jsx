@@ -415,11 +415,19 @@ function App() {
         {/* Shows selected project pop up */}
         {selectedProject && (
           <div className="modal-overlay" onClick={handleCloseModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={handleCloseModal}>
+            <div className="modal-close-box">
+              <button 
+                className="modal-close" 
+                onClick={handleCloseModal}
+              >
                 &times;
               </button>
-              {projectComponents[selectedProject.id]}
+            </div>
+
+            <div className="modal-wrapper"  onClick={(e) => e.stopPropagation()}>
+              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                {projectComponents[selectedProject.id]}
+              </div>
             </div>
           </div>
         )}
@@ -427,15 +435,16 @@ function App() {
         {/* Shows resume pop up */}
         {showResumeModal && (
           <div className="modal-overlay" onClick={() => setShowResumeModal(false)}>
+            <div className="modal-close-box">
+              <button 
+                className="modal-close" 
+                onClick={() => setShowResumeModal(false)}
+              >
+                &times;
+              </button>
+            </div>
+
             <div className="modal-wrapper" onClick={(e) => e.stopPropagation()}>
-              <div className="modal-close-box">
-                <button 
-                  className="modal-close" 
-                  onClick={() => setShowResumeModal(false)}
-                >
-                  &times;
-                </button>
-              </div>
               <div className="modal-content">
                 <object 
                   data={resumeFile} 
