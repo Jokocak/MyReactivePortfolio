@@ -35,6 +35,19 @@ function MachineLearningPipeline() {
           Through this project, I deepened my expertise in Python-based libraries such as scikit-learn, pandas, and Matplotlib. I also gained practical experience in end-to-end model development, from data ingestion and preparation to performance assessment and model refinement.
         </p>
       </div>
+
+      <div className="repo-link-box">
+        <h4>Repository Link</h4>
+
+        <a
+          className="verify-button"
+          href="https://colab.research.google.com/drive/1H_vIDASK7Feo228yO1t9RJTxmY8zOugh?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Go to Colab
+        </a>
+      </div>
     </div>
   );
 }

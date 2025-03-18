@@ -21,8 +21,9 @@ import DataProductCatalog from "./projects/DataProductCatalog";
 import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
 
 function App() {
-  // Still inside App.jsx
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showResumeModal, setShowResumeModal] = useState(false);
+
 
   const handleMoreClick = (project) => {
     setSelectedProject(project);
@@ -161,9 +162,18 @@ function App() {
                     <FaLinkedin />
                   </a>
                   <a href="mailto:jamkocak88@gmail.com?subject=Portfolio Contact" 
-                     onClick={handleEmailClick}>
+                      onClick={handleEmailClick}>
                     <MdEmail />
                   </a>
+                </div>
+
+                <div className="resume-preview">
+                  <button
+                    className="resume-button"
+                    onClick={() => setShowResumeModal(true)}
+                  >
+                    Preview Resume
+                  </button>
                 </div>
                 
                 <div className="resume-download">
@@ -402,31 +412,60 @@ function App() {
           </section>
         </div>
 
-        {/* Overlay logic */}
+        {/* Shows selected project pop up */}
         {selectedProject && (
           <div className="modal-overlay" onClick={handleCloseModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <button className="modal-close" onClick={handleCloseModal}>
                 &times;
               </button>
-              {projectComponents[selectedProject.id] /* Render the matched component */}
+              {projectComponents[selectedProject.id]}
+            </div>
+          </div>
+        )}
+
+        {/* Shows resume pop up */}
+        {showResumeModal && (
+          <div className="modal-overlay" onClick={() => setShowResumeModal(false)}>
+            <div className="modal-wrapper" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-close-box">
+                <button 
+                  className="modal-close" 
+                  onClick={() => setShowResumeModal(false)}
+                >
+                  &times;
+                </button>
+              </div>
+              <div className="modal-content">
+                <object 
+                  data={resumeFile} 
+                  type="application/pdf" 
+                  className="pdf-preview"
+                >
+                  Your browser does not support PDFs.
+                </object>
+              </div>
             </div>
           </div>
         )}
 
 
-        {/* {selectedProject && (
-          <div className="modal-overlay" onClick={handleCloseModal}>
+        {/* {showResumeModal && (
+          <div className="modal-overlay" onClick={() => setShowResumeModal(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={handleCloseModal}>
+              <button className="modal-close" onClick={() => setShowResumeModal(false)}>
                 &times;
               </button>
-              <h2>{selectedProject.title}</h2>
-              <p>{selectedProject.extraInfo}</p>
+              <object 
+                data={resumeFile} 
+                type="application/pdf" 
+                className="pdf-preview"
+              >
+                Your browser does not support PDFs.
+              </object>
             </div>
           </div>
         )} */}
-
       </div>
     </>
   )

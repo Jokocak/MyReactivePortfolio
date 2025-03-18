@@ -35,6 +35,14 @@ function DataProductCatalog() {
           Through this project, I refined my expertise in Python and Django for data ingestion, developed efficient algorithms for data product recommendations, and gained practical experience containerizing applications with Docker.
         </p>
       </div>
+
+      <div className="disclaimer-box">
+      <h4>Repository Link</h4>
+
+      <p>
+        Note: This repository is private. If you would like access, please contact me at <a href="mailto:jamkocak88@gmail.com">jamkocak88@gmail.com</a>. A demo video will added to this description soon.
+      </p>
+      </div>
     </div>
   );
 }
