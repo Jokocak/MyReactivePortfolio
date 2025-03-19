@@ -18,7 +18,7 @@ function SyntheaDataGeneration() {
       <div className="technologies-box">
         <h4>Technologies</h4>
         <p>
-          Synthea, Python, Data Pipelines, CSV/JSON Data Formats, ML/AI Tooling
+          Synthea, Java, Data Pipelines, CSV/JSON Data Formats, ML/AI Tooling
         </p>
       </div>
 
