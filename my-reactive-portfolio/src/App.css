@@ -187,11 +187,11 @@ hr {
 }
 
 .education-card {
+  display: flex;
+  align-items: center;
   max-width: 600px;
   margin: 0 auto;
   text-align: left;
-  display: flex;
-  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -433,6 +433,16 @@ hr {
   justify-content: center;
 }
 
+.project-more {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-icon {
+  font-size: 10rem;
+}
+
 @media (max-width: 768px) {
   .skills-primary,
   .skills-secondary {
@@ -460,46 +470,169 @@ hr {
   }
 }
 
-.modal-overlay {
+/* .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999; /* ensure modal is on top of everything */
+  z-index: 999;
 }
 
-.modal-content {
-  background: #fff;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 80%;
-  padding: 2rem;
-  position: relative; /* for the close button */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.modal-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  overflow: hidden;
+  padding-left: 4rem;
 }
 
 .modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 2%;
+  left: 2%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
 }
 
-.project-more {
-  text-align: center;
-  margin-top: auto;
-  padding-top: 1.5rem;
+.modal-content {
+  background: white;
+  width: 100%;
+  height: 100%;
+} */
+
+.pdf-preview {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-.project-icon {
-  font-size: 10rem;
+/* ----------------- Project Modal Styling ----------------- */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.project-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+}
+
+.project-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.project-modal-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.project-modal-content {
+  max-height: calc(100vh - 9rem);
+  padding: 2rem;     
+  overflow-y: auto;
+}
+
+
+/* ----------------- Resume Modal Styling ----------------- */
+.resume-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.resume-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+}
+
+.resume-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.resume-modal-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.resume-modal-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------------- Shared Styling ----------------- */
+.project-modal-close,
+.resume-modal-close {
+  position: absolute;
+  top: 1%;
+  right: -3.5rem;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.project-modal-close:hover,
+.resume-modal-close:hover {
+  background-color: #646cff;
+  transform: translateY(-3px);
 }

@@ -7,6 +7,7 @@ import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
 import { FaGears } from "react-icons/fa6";
 import { LuBrainCircuit } from "react-icons/lu";
+import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
@@ -15,11 +16,14 @@ import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
 import ncsuLogo from './assets/ncsu-logo-asset.png'
-import emailjs from '@emailjs/browser'
+import MachineLearningPipeline from "./projects/MachineLearningPipeline";
+import DataProductCatalog from "./projects/DataProductCatalog";
+import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
 
 function App() {
-  // Still inside App.jsx
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showResumeModal, setShowResumeModal] = useState(false);
+
 
   const handleMoreClick = (project) => {
     setSelectedProject(project);
@@ -84,36 +88,32 @@ function App() {
       });
   };
 
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    window.location.href = "mailto:jamkocak88@gmail.com?subject=Portfolio Contact";
-    setTimeout(() => {
-      alert("If your email client didn't open, you can either send an email to jamkocak88@gmail.com or use the Contact Me form at the bottom of the page.");
-    }, 1000);
+  // project Components
+  const projectComponents = {
+    1: <MachineLearningPipeline />,
+    2: <DataProductCatalog />,
+    3: <SyntheaDataGeneration />,
   };
 
-  // Inside App.jsx
+  // Data of projects
   const projectsData = [
     {
       id: 1,
       title: "Machine Learning Pipeline Exploration",
       description: "Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.",
       icon: <LuBrainCircuit />,
-      extraInfo: `Screenshots and more information coming!`
     },
     {
       id: 2,
       title: "Data Product Catalog",
-      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.",
+      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
       icon: <FaDatabase />,
-      extraInfo: `Screenshots and more information coming!`
     },
     {
       id: 3,
       title: "Synthea Data Generation",
       description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
       icon: <FaGears />,
-      extraInfo: `Screenshots and more information coming!`
     }
   ];
 
@@ -130,7 +130,7 @@ function App() {
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact-me">Contact Me</a></li>
+            <li><a href="#thank-you">Contact Me</a></li>
           </ul>
         </nav>
 
@@ -153,10 +153,18 @@ function App() {
                   <a href="https://linkedin.com/in/james-kocak" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin />
                   </a>
-                  <a href="mailto:jamkocak88@gmail.com?subject=Portfolio Contact" 
-                     onClick={handleEmailClick}>
+                  <a href="#contact-me">
                     <MdEmail />
                   </a>
+                </div>
+
+                <div className="resume-preview">
+                  <button
+                    className="resume-button"
+                    onClick={() => setShowResumeModal(true)}
+                  >
+                    Preview Resume
+                  </button>
                 </div>
                 
                 <div className="resume-download">
@@ -395,19 +403,54 @@ function App() {
           </section>
         </div>
 
-        {/* Overlay logic */}
+        {/* Project Modal */}
         {selectedProject && (
-          <div className="modal-overlay" onClick={handleCloseModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={handleCloseModal}>
-                &times; {/* This is the "X" symbol */}
+          <div className="project-modal-overlay" onClick={handleCloseModal}>
+            <div className="project-modal-container" onClick={(e) => e.stopPropagation()}>
+              <div className="project-modal-wrapper">
+                <div className="project-modal-inner">
+                  <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+                    {projectComponents[selectedProject.id]}
+                  </div>
+                </div>
+              </div>
+              <button 
+                className="project-modal-close" 
+                onClick={handleCloseModal}
+              >
+                &times;
               </button>
-              <h2>{selectedProject.title}</h2>
-              <p>{selectedProject.extraInfo}</p>
             </div>
           </div>
         )}
 
+
+        {/* Resume Modal */}
+        {showResumeModal && (
+          <div className="resume-modal-overlay" onClick={() => setShowResumeModal(false)}>
+            <div className="resume-modal-container">
+              <div className="resume-modal-wrapper">
+                <div className="resume-modal-inner">
+                  <div className="resume-modal-content">
+                    <object 
+                      data={resumeFile} 
+                      type="application/pdf" 
+                      className="pdf-preview"
+                    >
+                      Your browser does not support PDFs.
+                    </object>
+                  </div>
+                </div>
+              </div>
+              <button 
+                className="resume-modal-close" 
+                onClick={() => setShowResumeModal(false)}
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )
