@@ -187,11 +187,11 @@ hr {
 }
 
 .education-card {
+  display: flex;
+  align-items: center;
   max-width: 600px;
   margin: 0 auto;
   text-align: left;
-  display: flex;
-  align-items: flex-start;
   gap: 1rem;
 }
 
