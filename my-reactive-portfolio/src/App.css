@@ -470,7 +470,7 @@ hr {
   }
 }
 
-.modal-overlay {
+/* .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -492,38 +492,20 @@ hr {
   padding-left: 4rem;
 }
 
-/* .modal-close {
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  font-size: 2rem;
-  border: none;
-  background: black;
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 .modal-close {
   position: absolute;
   top: 2%;
   left: 2%;
   width: 40px;
   height: 40px;
-  padding: 0; /* Remove any padding */
-  margin: 0; /* Remove any margin */
-  box-sizing: border-box; /* Ensure padding and borders are included in the dimensions */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   border: none;
-  border-radius: 50%; /* Ensures a circle shape */
+  border-radius: 50%;
   background: black;
   color: white;
-  font-size: 1.5rem; /* Adjust if needed so the X fits well */
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -535,10 +517,121 @@ hr {
   background: white;
   width: 100%;
   height: 100%;
-}
+} */
 
 .pdf-preview {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* ----------------- Project Modal Styling ----------------- */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.project-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+}
+
+.project-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.project-modal-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.project-modal-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ----------------- Resume Modal Styling ----------------- */
+.resume-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.resume-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+}
+
+.resume-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.resume-modal-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.resume-modal-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------------- Shared Styling ----------------- */
+.project-modal-close,
+.resume-modal-close {
+  position: absolute;
+  top: 1%;
+  right: -3.5rem;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.project-modal-close:hover,
+.resume-modal-close:hover {
+  background-color: #646cff;
+  transform: translateY(-3px);
 }

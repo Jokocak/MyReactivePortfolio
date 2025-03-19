@@ -88,14 +88,6 @@ function App() {
       });
   };
 
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    window.location.href = "mailto:jamkocak88@gmail.com?subject=Portfolio Contact";
-    setTimeout(() => {
-      alert("If your email client didn't open, you can either send an email to jamkocak88@gmail.com or use the Contact Me form at the bottom of the page.");
-    }, 1000);
-  };
-
   // project Components
   const projectComponents = {
     1: <MachineLearningPipeline />,
@@ -114,7 +106,7 @@ function App() {
     {
       id: 2,
       title: "Data Product Catalog",
-      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage over 10,000 data assets.",
+      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
       icon: <FaDatabase />,
     },
     {
@@ -161,8 +153,7 @@ function App() {
                   <a href="https://linkedin.com/in/james-kocak" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin />
                   </a>
-                  <a href="mailto:jamkocak88@gmail.com?subject=Portfolio Contact" 
-                      onClick={handleEmailClick}>
+                  <a href="#contact-me">
                     <MdEmail />
                   </a>
                 </div>
@@ -412,64 +403,54 @@ function App() {
           </section>
         </div>
 
-        {/* Shows selected project pop up */}
+        {/* Project Modal */}
         {selectedProject && (
-          <div className="modal-overlay" onClick={handleCloseModal}>
-            <div className="modal-wrapper" onClick={(e) => e.stopPropagation()}>
-              <div className="modal-close-box">
-                <button 
-                  className="modal-close" 
-                  onClick={handleCloseModal}
-                >
-                  &times;
-                </button>
+          <div className="project-modal-overlay" onClick={handleCloseModal}>
+            <div className="project-modal-container" onClick={(e) => e.stopPropagation()}>
+              <div className="project-modal-wrapper">
+                <div className="project-modal-inner">
+                  <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+                    {projectComponents[selectedProject.id]}
+                  </div>
+                </div>
               </div>
-
-              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                {projectComponents[selectedProject.id]}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Shows resume pop up */}
-        {showResumeModal && (
-          <div className="modal-overlay" onClick={() => setShowResumeModal(false)}>
-            <div className="modal-wrapper" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setShowResumeModal(false)}>
-                &times;
-              </button>
-
-              <div className="modal-content">
-                <object 
-                  data={resumeFile} 
-                  type="application/pdf" 
-                  className="pdf-preview"
-                >
-                  Your browser does not support PDFs.
-                </object>
-              </div>
-            </div>
-          </div>
-        )}
-
-
-        {/* {showResumeModal && (
-          <div className="modal-overlay" onClick={() => setShowResumeModal(false)}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setShowResumeModal(false)}>
-                &times;
-              </button>
-              <object 
-                data={resumeFile} 
-                type="application/pdf" 
-                className="pdf-preview"
+              <button 
+                className="project-modal-close" 
+                onClick={handleCloseModal}
               >
-                Your browser does not support PDFs.
-              </object>
+                &times;
+              </button>
             </div>
           </div>
-        )} */}
+        )}
+
+
+        {/* Resume Modal */}
+        {showResumeModal && (
+          <div className="resume-modal-overlay" onClick={() => setShowResumeModal(false)}>
+            <div className="resume-modal-container">
+              <div className="resume-modal-wrapper">
+                <div className="resume-modal-inner">
+                  <div className="resume-modal-content">
+                    <object 
+                      data={resumeFile} 
+                      type="application/pdf" 
+                      className="pdf-preview"
+                    >
+                      Your browser does not support PDFs.
+                    </object>
+                  </div>
+                </div>
+              </div>
+              <button 
+                className="resume-modal-close" 
+                onClick={() => setShowResumeModal(false)}
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )
