@@ -3,14 +3,19 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #213547;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add smooth scrolling to the whole page */
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(14px, 2vw, 18px);
 }
 
 a {
@@ -25,9 +30,10 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
@@ -66,3 +72,26 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+section {
+
+  /* scroll-margin-top: 100px;
+
+  animation: fadeIn 0.3s ease-in forwards;
+  opacity: 0;
+
+
+  view-timeline-name: --fadeIn;
+  animation-timeline: --fadeIn;
+  animation-range-start: 20%;
+  animation-range-end: 30%; */
+}
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
