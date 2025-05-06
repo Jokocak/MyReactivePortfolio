@@ -181,7 +181,7 @@ function App() {
             <hr />
 
             <div className="card">
-              I'm an aspiring data scientist with experience in Python, machine learning, and data engineering. I've built predictive models, designed robust data pipelines, and delivered actionable insights from complex datasets.
+              I'm a data scientist with experience in Python, machine learning, and data engineering. I've built predictive models, designed robust data pipelines, and delivered actionable insights from complex datasets.
             </div>
           </section>
           
