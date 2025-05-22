@@ -40,7 +40,7 @@ function DataProductCatalog() {
       <h4>Repository Link</h4>
 
       <p>
-        Note: This repository is private. If you would like access, please contact me at <a href="mailto:jamkocak88@gmail.com">jamkocak88@gmail.com</a>. A demo video will added to this description soon.
+        Note: This repository is private. If you would like access, please contact me at <a href="mailto:jamkocak88@gmail.com">jamkocak88@gmail.com</a>. A demo video will be added to this description soon.
       </p>
       </div>
     </div>

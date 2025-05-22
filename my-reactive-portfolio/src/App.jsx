@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
@@ -12,6 +13,7 @@ import emailjs from '@emailjs/browser'
 // Local Imports
 import './App.css'
 import profilePic from './assets/jamkocak88@gmail.com-0.jpg'
+// import profilePic from './assets/PortfolioPhoto.JPG'
 import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
@@ -19,6 +21,7 @@ import ncsuLogo from './assets/ncsu-logo-asset.png'
 import MachineLearningPipeline from "./projects/MachineLearningPipeline";
 import DataProductCatalog from "./projects/DataProductCatalog";
 import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
+import CoffeeMaker from "./projects/CoffeeMaker";
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -32,7 +35,6 @@ function App() {
   const handleCloseModal = () => {
     setSelectedProject(null);
   };
-
 
   const [formData, setFormData] = useState({
     name: '',
@@ -93,10 +95,11 @@ function App() {
     1: <MachineLearningPipeline />,
     2: <DataProductCatalog />,
     3: <SyntheaDataGeneration />,
+    4: <CoffeeMaker />,
   };
 
-  // Data of projects
-  const projectsData = [
+  // Data Science Projects
+  const dataScienceProjects = [
     {
       id: 1,
       title: "Machine Learning Pipeline Exploration",
@@ -109,11 +112,21 @@ function App() {
       description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
       icon: <FaDatabase />,
     },
+    // {
+    //   id: 3,
+    //   title: "Synthea Data Generation",
+    //   description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
+    //   icon: <FaGears />,
+    // }
+  ];
+
+  // Software Engineering Projects
+  const softwareProjects = [
     {
-      id: 3,
-      title: "Synthea Data Generation",
-      description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
-      icon: <FaGears />,
+      id: 4,
+      title: "CoffeeMaker",
+      description: "Collaborated in a team to develop CoffeeMaker, a fullstack web application for coffee order management. Implemented robust CRUD operations and REST API endpoints using Spring Boot on the backend, and built a dynamic, user-friendly frontend. The project emphasized agile teamwork and best practices in software engineering.",
+      icon: <FaCode />,
     }
   ];
 
@@ -199,7 +212,7 @@ function App() {
               <div className="education-details">
                 <h3>North Carolina State University</h3>
                 <p>Bachelors in Computer Science</p>
-                <p>May 2025 (Expected)</p>
+                <p>May 2025</p>
                 <p>GPA: 3.6 / 4.0</p>
               </div>
             </div>
@@ -213,35 +226,18 @@ function App() {
               <div className="skill-card card">
                 <h3>Data Science</h3>
                 <ul>
-                  <li>Pandas</li>
-                  <li>NumPy</li>
-                  <li>Statistical Analysis</li>
-                  <li>Data Visualization</li>
-                  <li>Google Colab</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Data Engineering</h3>
-                <ul>
                   <li>Databricks</li>
-                  <li>Apache Spark</li>
-                  <li>ETL Pipelines</li>
-                  <li>Data Warehousing</li>
-                  <li>Delta Lake</li>
+                  <li>Data Visualization</li>
+                  <li>Statistical Analysis</li>
                 </ul>
               </div>
-            </div>
 
-            <div className="skills-secondary">
               <div className="card skill-card">
-                <h3>Programming</h3>
+                <h3>Software Engineering</h3>
                 <ul>
-                  <li>Python</li>
-                  <li>SQL</li>
-                  <li>PySpark</li>
-                  <li>Java</li>
-                  <li>Git</li>
+                  <li>Full-Stack Development</li>
+                  <li>Object-Oriented Programming</li>
+                  <li>Version Control with Git</li>
                 </ul>
               </div>
 
@@ -250,9 +246,7 @@ function App() {
                 <ul>
                   <li>Microsoft Azure</li>
                   <li>Amazon Web Services</li>
-                  <li>Google Cloud Platform</li>
                   <li>Docker</li>
-                  <li>Jenkins</li>
                 </ul>
               </div>
 
@@ -260,9 +254,7 @@ function App() {
                 <h3>Machine Learning</h3>
                 <ul>
                   <li>Scikit-learn</li>
-                  <li>Azure Machine Learning</li>
                   <li>Neural Networks</li>
-                  <li>Supervised Learning</li>
                   <li>Deep Learning</li>
                 </ul>
               </div>
@@ -270,29 +262,53 @@ function App() {
           </section>
 
           <section id="projects" className="section">
-            <h2>Projects</h2>
+            <h2>Data Science Projects</h2>
             <hr />
+              <div className="certifications-grid">
+                {dataScienceProjects.map((project) => (
+                  <div key={project.id} className="card certification-card">
+                    <div className="project-icon">
+                      {project.icon}
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
 
-            <div className="projects-grid">
-              {projectsData.map((project) => (
-                <div key={project.id} className="card project-card">
-                  <div className="project-icon">
-                    {project.icon}
+                    <div className="project-more">
+                      <button 
+                        className="verify-button"
+                        onClick={() => handleMoreClick(project)}
+                      >
+                        More
+                      </button>
+                    </div>
                   </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <div className="project-more">
-                    <button 
-                      className="verify-button"  // <-- Reuse .verify-button styling
-                      onClick={() => handleMoreClick(project)}
-                    >
-                      More
-                    </button>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
+          </section>
+
+          <section id="software-projects" className="section">
+            <h2>Software Engineering Projects</h2>
+            <hr />
+              <div className="projects-grid">
+                {softwareProjects.map((project) => (
+                  <div key={project.id} className="card project-card">
+                    <div className="project-icon">
+                      {project.icon}
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+
+                    <div className="project-more">
+                      <button 
+                        className="verify-button"
+                        onClick={() => handleMoreClick(project)}
+                      >
+                        More
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
           </section>
 
           <section id="certifications" className="section">

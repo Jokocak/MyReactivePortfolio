@@ -25,7 +25,7 @@ function MachineLearningPipeline() {
       <div className="result-box">
         <h4>Results</h4>
         <p>
-          The final model achieved an accuracy of 89%, successfully predicting client subscription outcomes based on demographic and historical data.
+          The final model achieved an accuracy of 89.6%, successfully predicting client subscription outcomes based on demographic and historical data.
         </p>
       </div>
 
