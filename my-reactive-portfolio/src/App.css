@@ -527,6 +527,15 @@ hr {
     margin-bottom: 3rem;
     padding: 0 0.5rem;
   }
+
+  .project-modal-container, .project-modal-content {
+    height: 98vh;
+    max-width: 99vw;
+    padding: 0.5rem !important;
+  }
+  .project-modal-content {
+    padding: 1rem !important;
+  }
 }
 
 /* Add an additional breakpoint for very small screens */
@@ -622,7 +631,7 @@ hr {
   position: relative;
   width: 90%;
   max-width: 900px;
-  height: 90vh;
+  height: 98vh;
 }
 
 .project-modal-wrapper {
@@ -640,9 +649,10 @@ hr {
 }
 
 .project-modal-content {
-  max-height: calc(100vh - 9rem);
-  padding: 2rem;     
+  max-height: calc(100vh - 2rem);
+  padding: 1rem 2rem 2rem 2rem;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 
@@ -752,4 +762,12 @@ hr {
   box-shadow: 0 1px 4px 1px rgba(100,100,100,0.04);
   font-size: 1rem;
   margin-left: .2rem;
+}
+
+.demo-box video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 8px;
 }

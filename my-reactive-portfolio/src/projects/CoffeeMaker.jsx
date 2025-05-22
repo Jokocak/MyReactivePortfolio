@@ -1,15 +1,32 @@
 // CoffeeMaker.jsx
+
+// Import video
+import coffeeMakerDemo from '../assets/CoffeeMakerDemo.mp4';
+
 function CoffeeMaker() {
     return (
         <div>
             <h3>CoffeeMaker</h3>
 
             <div className="demo-box">
-                {/* Placeholder for a future video or image demo */}
+                <video
+                    src={coffeeMakerDemo}
+                    controls
+                    width="100%"
+                    style={{ borderRadius: '8px', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.09)' }}
+                    poster="//:0" // Optionally add a poster image
+                >
+                    Sorry, your browser doesn't support embedded videos.
+                </video>
             </div>
 
             <div className="description-box">
-                <h4>Description</h4>
+                <h4>Video Description</h4>
+                <p>
+                The video above demonstrates full CRUD operations within the CoffeeMaker app while signed in as a Manager (one of four distinct user roles: Manager, Staff, User, and Guest User). As a manager, I create new ingredients with customizable units, and this data seamlessly persists across application screens. I then build a new recipe using the available ingredients and assign it a price. The recipe can be updated at any time—modifying its price, adjusting ingredient quantities, or both. Finally, I show how a recipe can be deleted entirely, highlighting the flexibility and control provided by the system’s role-based features.
+                </p>
+                
+                <h4>Project Description</h4>
                 <p>
                 CoffeeMaker is a fullstack coffee order management web application developed in a collaborative team setting. The project enables users to create, modify, view, and delete coffee orders, manage recipes, and simulate day-to-day café operations. Designed to streamline the workflow of baristas and customers alike, CoffeeMaker features a user-friendly interface and robust backend logic.
                 </p>

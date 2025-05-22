@@ -13,6 +13,7 @@ import emailjs from '@emailjs/browser'
 // Local Imports
 import './App.css'
 import profilePic from './assets/jamkocak88@gmail.com-0.jpg'
+// import profilePic from './assets/PortfolioPhoto.JPG'
 import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
@@ -263,9 +264,9 @@ function App() {
           <section id="projects" className="section">
             <h2>Data Science Projects</h2>
             <hr />
-              <div className="projects-grid">
+              <div className="certifications-grid">
                 {dataScienceProjects.map((project) => (
-                  <div key={project.id} className="card project-card">
+                  <div key={project.id} className="card certification-card">
                     <div className="project-icon">
                       {project.icon}
                     </div>
