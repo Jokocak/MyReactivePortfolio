@@ -123,8 +123,8 @@ function App() {
   const softwareProjects = [
     {
       id: 4,
-      title: "Portfolio Website",
-      description: "Developed a responsive personal portfolio website using React, implementing modern UI/UX principles, component-based architecture, and email integration. Features include dynamic content loading, modal implementations, and responsive design across all devices.",
+      title: "CoffeeMaker",
+      description: "Collaborated in a team to develop CoffeeMaker, a fullstack web application for coffee order management. Implemented robust CRUD operations and REST API endpoints using Spring Boot on the backend, and built a dynamic, user-friendly frontend. The project emphasized agile teamwork and best practices in software engineering.",
       icon: <FaCode />,
     }
   ];
@@ -211,7 +211,7 @@ function App() {
               <div className="education-details">
                 <h3>North Carolina State University</h3>
                 <p>Bachelors in Computer Science</p>
-                <p>May 2025 (Expected)</p>
+                <p>May 2025</p>
                 <p>GPA: 3.6 / 4.0</p>
               </div>
             </div>

@@ -11,28 +11,28 @@ function CoffeeMaker() {
             <div className="description-box">
                 <h4>Description</h4>
                 <p>
-                Synthea Data Generation is a project that leverages Synthea to create realistic synthetic healthcare datasets. These datasets can be used to develop and evaluate machine learning models for disease detection, improve clinical decision support systems, and study screening algorithms for false positives. By providing high-quality synthetic data, this project offers researchers, data engineers, and data scientists a safe and privacy-friendly alternative for complex testing and analytics.
+                CoffeeMaker is a fullstack coffee order management web application developed in a collaborative team setting. The project enables users to create, modify, view, and delete coffee orders, manage recipes, and simulate day-to-day café operations. Designed to streamline the workflow of baristas and customers alike, CoffeeMaker features a user-friendly interface and robust backend logic.
                 </p>
             </div>
 
             <div className="technologies-box">
                 <h4>Technologies</h4>
                 <p>
-                Synthea, Java, Data Pipelines, CSV/JSON Data Formats, ML/AI Tooling
+                Spring Boot, Java, Maven, AngularJS
                 </p>
             </div>
 
             <div className="result-box">
                 <h4>Results</h4>
                 <p>
-                This solution allows users to generate comprehensive patient records and clinical events in formats (CSV, JSON, etc.) that can easily integrate into existing data pipelines. By simulating realistic healthcare scenarios, it empowers teams to refine disease detection models, reduce false positive rates in screening tests, and validate data ingestion processes without compromising patient privacy.
+                Working as part of an agile team, we implemented comprehensive CRUD operations and built RESTful API endpoints for seamless interaction between the frontend and backend. This enabled reliable management of coffee orders and recipes, and brought a scalable, maintainable architecture to the project. The application provides real-time feedback and a streamlined ordering experience.
                 </p>
             </div>
 
             <div className="learned-box">
                 <h4>Lessons Learned</h4>
                 <p>
-                Throughout this project, I gained a deeper understanding of synthetic data generation, healthcare data workflows, and best practices for testing and validating ML pipelines. In addition, I enhanced my skills in orchestrating data ingestion, handling complex file formats, and designing robust simulation environments for large-scale analytics.
+                During this project, I strengthened my skills in fullstack development and deepened my understanding of REST API construction using Spring Boot. I also gained practical experience working with a team using version control (Git), code reviews, and agile methodologies. The project reinforced the value of clear communication, modular design, and best practices in developing production-ready web applications.
                 </p>
             </div>
 
@@ -41,12 +41,45 @@ function CoffeeMaker() {
 
                 <a
                 className="verify-button"
-                href="https://github.com/muksaw/Synthea-Data-Generation"
+                href="https://github.com/Jokocak/CoffeeMaker"
                 target="_blank"
                 rel="noopener noreferrer"
                 >
                 Go to Repository
                 </a>
+            </div>
+
+            <div className="repo-link-box">
+                <h4>Website Link</h4>
+
+                <a
+                className="verify-button"
+                href="https://coffeemaker.up.railway.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Go to CoffeeMaker Simulation
+                </a>
+            </div>
+
+            <div className="credentials-box">
+                <h4>Website Manager and Staff Credentials</h4>
+                <div className="credential-pair">
+                    <span className="credential-label">Manager Username:</span>
+                    <span className="credential-value">admin</span>
+                </div>
+                <div className="credential-pair">
+                    <span className="credential-label">Manager Password:</span>
+                    <span className="credential-value">password</span>
+                </div>
+                <div className="credential-pair">
+                    <span className="credential-label">Staff Username:</span>
+                    <span className="credential-value">staff</span>
+                </div>
+                <div className="credential-pair">
+                    <span className="credential-label">Staff Password:</span>
+                    <span className="credential-value">password</span>
+                </div>
             </div>
         </div>
     );

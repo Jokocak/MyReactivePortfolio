@@ -478,25 +478,84 @@ hr {
   .skills-secondary {
     grid-template-columns: 1fr;
   }
+  
   .profile-container {
     flex-direction: column;
     align-items: center;
   }
+  
   .profile-links {
     text-align: center;
   }
+  
   .profile-image {
     margin-right: 0;
     margin-bottom: 1rem;
   }
+  
   .sidebar {
     display: none;
   }
+  
   .portfolio-container {
     margin-left: 0;
+    padding: 0 1rem; /* Add padding for smaller screens */
   }
+  
+  /* Updated projects grid styling for mobile */
   .projects-grid {
     grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 1rem 0;
+    gap: 1.5rem;
+  }
+
+  /* Updated single project grid styling for mobile */
+  .single-project-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+
+  /* Adjust project cards for mobile */
+  .project-card {
+    min-height: 350px; /* Slightly reduced height for mobile */
+    padding: 1.5rem;
+  }
+
+  .project-icon {
+    font-size: 4rem; /* Slightly smaller icon for mobile */
+  }
+
+  /* Adjust section containers for mobile */
+  .projects-section-container {
+    padding: 0 0.5rem;
+  }
+
+  /* Adjust general section spacing for mobile */
+  .section {
+    margin-bottom: 3rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Add an additional breakpoint for very small screens */
+@media (max-width: 480px) {
+  .project-card {
+    min-height: 300px;
+    padding: 1rem;
+  }
+
+  .project-icon {
+    font-size: 3.5rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .portfolio-container {
+    padding: 0 0.5rem;
   }
 }
 
@@ -665,4 +724,42 @@ hr {
 .resume-modal-close:hover {
   background-color: #646cff;
   transform: translateY(-3px);
+}
+
+.credentials-box {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem auto 0 auto;
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.1);
+  display: block;
+  max-width: 400px;
+  text-align: left;
+}
+
+.credentials-box h4 {
+  margin-top: 0;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.credential-pair {
+  margin-bottom: 1rem;
+}
+
+.credential-label {
+  font-weight: 500;
+  color: #646cff;
+  margin-right: .4rem;
+}
+
+.credential-value {
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  color: #1a1a1a;
+  background: #f5f7fa;
+  border-radius: 4px;
+  padding: 3px 8px;
+  box-shadow: 0 1px 4px 1px rgba(100,100,100,0.04);
+  font-size: 1rem;
+  margin-left: .2rem;
 }
