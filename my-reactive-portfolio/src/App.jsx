@@ -263,52 +263,54 @@ function App() {
           <section id="projects" className="section">
             <h2>Data Science Projects</h2>
             <hr />
+            <div className="projects-section-container">
+              <div className="projects-grid">
+                {dataScienceProjects.map((project) => (
+                  <div key={project.id} className="card project-card">
+                    <div className="project-icon">
+                      {project.icon}
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
 
-            <div className="projects-grid">
-              {dataScienceProjects.map((project) => (
-                <div key={project.id} className="card project-card">
-                  <div className="project-icon">
-                    {project.icon}
+                    <div className="project-more">
+                      <button 
+                        className="verify-button"
+                        onClick={() => handleMoreClick(project)}
+                      >
+                        More
+                      </button>
+                    </div>
                   </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <div className="project-more">
-                    <button 
-                      className="verify-button"
-                      onClick={() => handleMoreClick(project)}
-                    >
-                      More
-                    </button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 
           <section id="software-projects" className="section">
             <h2>Software Engineering Projects</h2>
             <hr />
+            <div className="projects-section-container">
+              <div className="single-projects-grid">
+                {softwareProjects.map((project) => (
+                  <div key={project.id} className="card project-card">
+                    <div className="project-icon">
+                      {project.icon}
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
 
-            <div className="projects-grid">
-              {softwareProjects.map((project) => (
-                <div key={project.id} className="card project-card">
-                  <div className="project-icon">
-                    {project.icon}
+                    <div className="project-more">
+                      <button 
+                        className="verify-button"
+                        onClick={() => handleMoreClick(project)}
+                      >
+                        More
+                      </button>
+                    </div>
                   </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <div className="project-more">
-                    <button 
-                      className="verify-button"
-                      onClick={() => handleMoreClick(project)}
-                    >
-                      More
-                    </button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 

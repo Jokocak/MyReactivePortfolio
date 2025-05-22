@@ -212,9 +212,12 @@ hr {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Set to exactly 2 columns */
   gap: 2rem;
   padding: 2rem 0;
+  width: 100%;
+  max-width: 1000px; /* Control maximum width */
+  margin: 0 auto; /* Center the grid */
 }
 
 .project-image {
@@ -228,17 +231,23 @@ hr {
 .project-card {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
+  height: 100%;
+  justify-content: space-between;
+  min-height: 400px;
+  padding: 2rem;
 }
 
 .project-card h3 {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   color: #1a1a1a;
+  font-size: 1.4rem;
 }
 
 .project-card p {
   color: #666;
   line-height: 1.5;
+  flex: 1;
+  margin: 1rem 0;
 }
 
 .certifications-grid {
@@ -434,13 +443,34 @@ hr {
 }
 
 .project-more {
-  text-align: center;
-  margin-top: auto;
-  padding-top: 1.5rem;
+  margin-top: auto; /* Pushes the button to the bottom */
+  padding-top: 1rem;
 }
 
+
 .project-icon {
-  font-size: 10rem;
+  font-size: 5rem;
+  margin: 1rem 0;
+  color: #1a1a1a; /* Match your dark theme */
+}
+.projects-section-container {
+  width: 100%;
+  max-width: 1200px; /* Or whatever maximum width you prefer */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  margin-bottom: 4rem; /* Reduce space between sections */
+}
+
+.single-project-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(300px, 600px)); /* Single column with max width */
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
