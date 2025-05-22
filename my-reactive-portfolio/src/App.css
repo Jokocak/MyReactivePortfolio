@@ -212,12 +212,13 @@ hr {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Set to exactly 2 columns */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive like certifications */
   gap: 2rem;
   padding: 2rem 0;
   width: 100%;
-  max-width: 1000px; /* Control maximum width */
-  margin: 0 auto; /* Center the grid */
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center; /* Optional, helps with centering when fewer cards */
 }
 
 .project-image {
@@ -453,12 +454,6 @@ hr {
   margin: 1rem 0;
   color: #1a1a1a; /* Match your dark theme */
 }
-.projects-section-container {
-  width: 100%;
-  max-width: 1200px; /* Or whatever maximum width you prefer */
-  margin: 0 auto;
-  padding: 0 1rem;
-}
 
 .section {
   margin-bottom: 4rem; /* Reduce space between sections */
@@ -525,11 +520,6 @@ hr {
 
   .project-icon {
     font-size: 4rem; /* Slightly smaller icon for mobile */
-  }
-
-  /* Adjust section containers for mobile */
-  .projects-section-container {
-    padding: 0 0.5rem;
   }
 
   /* Adjust general section spacing for mobile */

@@ -263,7 +263,6 @@ function App() {
           <section id="projects" className="section">
             <h2>Data Science Projects</h2>
             <hr />
-            <div className="projects-section-container">
               <div className="projects-grid">
                 {dataScienceProjects.map((project) => (
                   <div key={project.id} className="card project-card">
@@ -283,15 +282,13 @@ function App() {
                     </div>
                   </div>
                 ))}
-              </div>
             </div>
           </section>
 
           <section id="software-projects" className="section">
             <h2>Software Engineering Projects</h2>
             <hr />
-            <div className="projects-section-container">
-              <div className="single-projects-grid">
+              <div className="projects-grid">
                 {softwareProjects.map((project) => (
                   <div key={project.id} className="card project-card">
                     <div className="project-icon">
@@ -311,7 +308,6 @@ function App() {
                   </div>
                 ))}
               </div>
-            </div>
           </section>
 
           <section id="certifications" className="section">
