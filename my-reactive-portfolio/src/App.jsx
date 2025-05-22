@@ -213,35 +213,18 @@ function App() {
               <div className="skill-card card">
                 <h3>Data Science</h3>
                 <ul>
-                  <li>Pandas</li>
-                  <li>NumPy</li>
-                  <li>Statistical Analysis</li>
-                  <li>Data Visualization</li>
-                  <li>Google Colab</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Data Engineering</h3>
-                <ul>
                   <li>Databricks</li>
-                  <li>Apache Spark</li>
-                  <li>ETL Pipelines</li>
-                  <li>Data Warehousing</li>
-                  <li>Delta Lake</li>
+                  <li>Data Visualization</li>
+                  <li>Statistical Analysis</li>
                 </ul>
               </div>
-            </div>
 
-            <div className="skills-secondary">
               <div className="card skill-card">
-                <h3>Programming</h3>
+                <h3>Software Engineering</h3>
                 <ul>
-                  <li>Python</li>
-                  <li>SQL</li>
-                  <li>PySpark</li>
-                  <li>Java</li>
-                  <li>Git</li>
+                  <li>Full-Stack Development</li>
+                  <li>Object-Oriented Programming</li>
+                  <li>Version Control with Git</li>
                 </ul>
               </div>
 
@@ -250,9 +233,7 @@ function App() {
                 <ul>
                   <li>Microsoft Azure</li>
                   <li>Amazon Web Services</li>
-                  <li>Google Cloud Platform</li>
                   <li>Docker</li>
-                  <li>Jenkins</li>
                 </ul>
               </div>
 
@@ -260,9 +241,7 @@ function App() {
                 <h3>Machine Learning</h3>
                 <ul>
                   <li>Scikit-learn</li>
-                  <li>Azure Machine Learning</li>
                   <li>Neural Networks</li>
-                  <li>Supervised Learning</li>
                   <li>Deep Learning</li>
                 </ul>
               </div>
@@ -270,7 +249,33 @@ function App() {
           </section>
 
           <section id="projects" className="section">
-            <h2>Projects</h2>
+            <h2>Data Science Projects</h2>
+            <hr />
+
+            <div className="projects-grid">
+              {projectsData.map((project) => (
+                <div key={project.id} className="card project-card">
+                  <div className="project-icon">
+                    {project.icon}
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+
+                  <div className="project-more">
+                    <button 
+                      className="verify-button"  // <-- Reuse .verify-button styling
+                      onClick={() => handleMoreClick(project)}
+                    >
+                      More
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="projects" className="section">
+            <h2>Software Engineering Projects</h2>
             <hr />
 
             <div className="projects-grid">
