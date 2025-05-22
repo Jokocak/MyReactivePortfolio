@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
@@ -19,6 +20,7 @@ import ncsuLogo from './assets/ncsu-logo-asset.png'
 import MachineLearningPipeline from "./projects/MachineLearningPipeline";
 import DataProductCatalog from "./projects/DataProductCatalog";
 import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
+import CoffeeMaker from "./projects/CoffeeMaker";
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -32,7 +34,6 @@ function App() {
   const handleCloseModal = () => {
     setSelectedProject(null);
   };
-
 
   const [formData, setFormData] = useState({
     name: '',
@@ -93,10 +94,11 @@ function App() {
     1: <MachineLearningPipeline />,
     2: <DataProductCatalog />,
     3: <SyntheaDataGeneration />,
+    4: <CoffeeMaker />,
   };
 
-  // Data of projects
-  const projectsData = [
+  // Data Science Projects
+  const dataScienceProjects = [
     {
       id: 1,
       title: "Machine Learning Pipeline Exploration",
@@ -109,11 +111,21 @@ function App() {
       description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
       icon: <FaDatabase />,
     },
+    // {
+    //   id: 3,
+    //   title: "Synthea Data Generation",
+    //   description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
+    //   icon: <FaGears />,
+    // }
+  ];
+
+  // Software Engineering Projects
+  const softwareProjects = [
     {
-      id: 3,
-      title: "Synthea Data Generation",
-      description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
-      icon: <FaGears />,
+      id: 4,
+      title: "Portfolio Website",
+      description: "Developed a responsive personal portfolio website using React, implementing modern UI/UX principles, component-based architecture, and email integration. Features include dynamic content loading, modal implementations, and responsive design across all devices.",
+      icon: <FaCode />,
     }
   ];
 
@@ -253,7 +265,7 @@ function App() {
             <hr />
 
             <div className="projects-grid">
-              {projectsData.map((project) => (
+              {dataScienceProjects.map((project) => (
                 <div key={project.id} className="card project-card">
                   <div className="project-icon">
                     {project.icon}
@@ -263,7 +275,7 @@ function App() {
 
                   <div className="project-more">
                     <button 
-                      className="verify-button"  // <-- Reuse .verify-button styling
+                      className="verify-button"
                       onClick={() => handleMoreClick(project)}
                     >
                       More
@@ -274,12 +286,12 @@ function App() {
             </div>
           </section>
 
-          <section id="projects" className="section">
+          <section id="software-projects" className="section">
             <h2>Software Engineering Projects</h2>
             <hr />
 
             <div className="projects-grid">
-              {projectsData.map((project) => (
+              {softwareProjects.map((project) => (
                 <div key={project.id} className="card project-card">
                   <div className="project-icon">
                     {project.icon}
@@ -289,7 +301,7 @@ function App() {
 
                   <div className="project-more">
                     <button 
-                      className="verify-button"  // <-- Reuse .verify-button styling
+                      className="verify-button"
                       onClick={() => handleMoreClick(project)}
                     >
                       More
