@@ -12,8 +12,7 @@ import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
-import profilePic from './assets/jamkocak88@gmail.com-0.jpg'
-// import profilePic from './assets/PortfolioPhoto.JPG'
+import profilePic from './assets/jamkocak88@gmail.com-1.jpg'
 import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
@@ -112,12 +111,6 @@ function App() {
       description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
       icon: <FaDatabase />,
     },
-    // {
-    //   id: 3,
-    //   title: "Synthea Data Generation",
-    //   description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
-    //   icon: <FaGears />,
-    // }
   ];
 
   // Software Engineering Projects
@@ -157,7 +150,7 @@ function App() {
               <div className="profile-links">
                 <h2>James Kocak</h2>
                 <hr />
-                <h2>Data Scientist | Data Engineer</h2>
+                <h2>Software Engineer</h2>
 
                 <div className="social-links">
                   <a href="https://github.com/Jokocak" target="_blank" rel="noopener noreferrer">
@@ -194,7 +187,7 @@ function App() {
             <hr />
 
             <div className="card">
-              I'm a data scientist with experience in Python, machine learning, and data engineering. I've built predictive models, designed robust data pipelines, and delivered actionable insights from complex datasets.
+              I'm a software engineer with experience creating backend design, database schemas, and APIs. I've built full-stack applications, designed robust databases, and optimized algorithms for efficient runtimes.
             </div>
           </section>
           
@@ -224,38 +217,40 @@ function App() {
             
             <div className="skills-primary">
               <div className="skill-card card">
-                <h3>Data Science</h3>
+                <h3>Programming Languages</h3>
                 <ul>
-                  <li>Databricks</li>
-                  <li>Data Visualization</li>
-                  <li>Statistical Analysis</li>
+                  <li>Java</li>
+                  <li>Python</li>
+                  <li>C++</li>
                 </ul>
               </div>
 
               <div className="card skill-card">
-                <h3>Software Engineering</h3>
+                <h3>Soft Skills</h3>
+                <ul>
+                  <li>Agile Methodologies</li>
+                  <li>Technical Writing</li>
+                  <li>Communication & Collaboration</li>
+                </ul>
+              </div>
+
+              <div className="card skill-card">
+                <h3>Software Engineering Skills</h3>
                 <ul>
                   <li>Full-Stack Development</li>
                   <li>Object-Oriented Programming</li>
-                  <li>Version Control with Git</li>
+                  <li>RESTful APIs</li>
+                  <li>Database Design</li>
                 </ul>
               </div>
 
               <div className="card skill-card">
-                <h3>Cloud & Tools</h3>
+                <h3>Industry-Specific Tools</h3>
                 <ul>
-                  <li>Microsoft Azure</li>
-                  <li>Amazon Web Services</li>
+                  <li>Git/GitHub</li>
+                  <li>GitHub Actions</li>
                   <li>Docker</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Machine Learning</h3>
-                <ul>
-                  <li>Scikit-learn</li>
-                  <li>Neural Networks</li>
-                  <li>Deep Learning</li>
+                  <li>MySQL Workbench</li>
                 </ul>
               </div>
             </div>
@@ -287,7 +282,7 @@ function App() {
           </section>
 
           <section id="software-projects" className="section">
-            <h2>Software Engineering Projects</h2>
+            <h2>Projects</h2>
             <hr />
               <div className="projects-grid">
                 {softwareProjects.map((project) => (
