@@ -6,6 +6,7 @@ import { FaCode } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
+import { FaDisplay } from "react-icons/fa6";
 import { FaGears } from "react-icons/fa6";
 import { LuBrainCircuit } from "react-icons/lu";
 import emailjs from '@emailjs/browser'
@@ -21,6 +22,7 @@ import MachineLearningPipeline from "./projects/MachineLearningPipeline";
 import DataProductCatalog from "./projects/DataProductCatalog";
 import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
 import CoffeeMaker from "./projects/CoffeeMaker";
+import KitchenDisplaySystem from "./projects/KitchenDisplaySystem";
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -95,6 +97,7 @@ function App() {
     2: <DataProductCatalog />,
     3: <SyntheaDataGeneration />,
     4: <CoffeeMaker />,
+    5: <KitchenDisplaySystem />,
   };
 
   // Data Science Projects
@@ -116,11 +119,23 @@ function App() {
   // Software Engineering Projects
   const softwareProjects = [
     {
+      id: 5,
+      title: "Kitchen Display System",
+      description: "Designed a full-stack kitchen display system integrating Clover API for real-time order display, with a scalable Expo/React Native, Django, and MySQL backend, reducing errors by 30%, boosting order processing by 20%, and enhancing team productivity by 15% through Agile mentorship and a Project Design Document.",
+      icon: <FaDisplay />,
+    },
+    {
       id: 4,
       title: "CoffeeMaker",
       description: "Collaborated in a team to develop CoffeeMaker, a fullstack web application for coffee order management. Implemented robust CRUD operations and REST API endpoints using Spring Boot on the backend, and built a dynamic, user-friendly frontend. The project emphasized agile teamwork and best practices in software engineering.",
       icon: <FaCode />,
-    }
+    },
+    {
+      id: 2,
+      title: "Data Product Catalog",
+      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
+      icon: <FaDatabase />,
+    },
   ];
 
 
@@ -257,10 +272,10 @@ function App() {
           </section>
 
           <section id="projects" className="section">
-            <h2>Data Science Projects</h2>
+            <h2>Projects</h2>
             <hr />
               <div className="certifications-grid">
-                {dataScienceProjects.map((project) => (
+                {softwareProjects.map((project) => (
                   <div key={project.id} className="card certification-card">
                     <div className="project-icon">
                       {project.icon}
@@ -279,31 +294,6 @@ function App() {
                   </div>
                 ))}
             </div>
-          </section>
-
-          <section id="software-projects" className="section">
-            <h2>Projects</h2>
-            <hr />
-              <div className="projects-grid">
-                {softwareProjects.map((project) => (
-                  <div key={project.id} className="card project-card">
-                    <div className="project-icon">
-                      {project.icon}
-                    </div>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-
-                    <div className="project-more">
-                      <button 
-                        className="verify-button"
-                        onClick={() => handleMoreClick(project)}
-                      >
-                        More
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
           </section>
 
           <section id="certifications" className="section">
