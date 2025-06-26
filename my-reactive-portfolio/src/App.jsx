@@ -6,14 +6,14 @@ import { FaCode } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
+import { FaDisplay } from "react-icons/fa6";
 import { FaGears } from "react-icons/fa6";
 import { LuBrainCircuit } from "react-icons/lu";
 import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
-import profilePic from './assets/jamkocak88@gmail.com-0.jpg'
-// import profilePic from './assets/PortfolioPhoto.JPG'
+import profilePic from './assets/jamkocak88@gmail.com-1.jpg'
 import resumeFile from './assets/James_Kocak_Resume.pdf'
 import databricksLogo from './assets/databricks-logo-asset.png'
 import microsoftLogo from './assets/microsoft-logo-asset.png'
@@ -22,6 +22,7 @@ import MachineLearningPipeline from "./projects/MachineLearningPipeline";
 import DataProductCatalog from "./projects/DataProductCatalog";
 import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
 import CoffeeMaker from "./projects/CoffeeMaker";
+import KitchenDisplaySystem from "./projects/KitchenDisplaySystem";
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -96,6 +97,7 @@ function App() {
     2: <DataProductCatalog />,
     3: <SyntheaDataGeneration />,
     4: <CoffeeMaker />,
+    5: <KitchenDisplaySystem />,
   };
 
   // Data Science Projects
@@ -112,22 +114,28 @@ function App() {
       description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
       icon: <FaDatabase />,
     },
-    // {
-    //   id: 3,
-    //   title: "Synthea Data Generation",
-    //   description: "Leveraged Synthea to generate realistic healthcare datasets (10K+ patient records) for robust ML testing and disease detection, developed automated JSON data pipelines for flexible analytics ingestion, and boosted data quality testing coverage from 50% to 95% with integrated validation scripts.",
-    //   icon: <FaGears />,
-    // }
   ];
 
   // Software Engineering Projects
   const softwareProjects = [
     {
+      id: 5,
+      title: "Kitchen Display System",
+      description: "Designed a full-stack kitchen display system integrating Clover API for real-time order display, with a scalable Expo/React Native, Django, and MySQL backend, reducing errors by 30%, boosting order processing by 20%, and enhancing team productivity by 15% through Agile mentorship and a Project Design Document.",
+      icon: <FaDisplay />,
+    },
+    {
       id: 4,
       title: "CoffeeMaker",
       description: "Collaborated in a team to develop CoffeeMaker, a fullstack web application for coffee order management. Implemented robust CRUD operations and REST API endpoints using Spring Boot on the backend, and built a dynamic, user-friendly frontend. The project emphasized agile teamwork and best practices in software engineering.",
       icon: <FaCode />,
-    }
+    },
+    {
+      id: 2,
+      title: "Data Product Catalog",
+      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
+      icon: <FaDatabase />,
+    },
   ];
 
 
@@ -157,7 +165,7 @@ function App() {
               <div className="profile-links">
                 <h2>James Kocak</h2>
                 <hr />
-                <h2>Data Scientist | Data Engineer</h2>
+                <h2>Software Engineer</h2>
 
                 <div className="social-links">
                   <a href="https://github.com/Jokocak" target="_blank" rel="noopener noreferrer">
@@ -194,7 +202,7 @@ function App() {
             <hr />
 
             <div className="card">
-              I'm a data scientist with experience in Python, machine learning, and data engineering. I've built predictive models, designed robust data pipelines, and delivered actionable insights from complex datasets.
+              I'm a software engineer with experience creating backend design, database schemas, and APIs. I've built full-stack applications, designed robust databases, and optimized algorithms for efficient runtimes.
             </div>
           </section>
           
@@ -224,48 +232,50 @@ function App() {
             
             <div className="skills-primary">
               <div className="skill-card card">
-                <h3>Data Science</h3>
+                <h3>Programming Languages</h3>
                 <ul>
-                  <li>Databricks</li>
-                  <li>Data Visualization</li>
-                  <li>Statistical Analysis</li>
+                  <li>Java</li>
+                  <li>Python</li>
+                  <li>C++</li>
                 </ul>
               </div>
 
               <div className="card skill-card">
-                <h3>Software Engineering</h3>
+                <h3>Soft Skills</h3>
+                <ul>
+                  <li>Agile Methodologies</li>
+                  <li>Technical Writing</li>
+                  <li>Communication & Collaboration</li>
+                </ul>
+              </div>
+
+              <div className="card skill-card">
+                <h3>Software Engineering Skills</h3>
                 <ul>
                   <li>Full-Stack Development</li>
                   <li>Object-Oriented Programming</li>
-                  <li>Version Control with Git</li>
+                  <li>RESTful APIs</li>
+                  <li>Database Design</li>
                 </ul>
               </div>
 
               <div className="card skill-card">
-                <h3>Cloud & Tools</h3>
+                <h3>Industry-Specific Tools</h3>
                 <ul>
-                  <li>Microsoft Azure</li>
-                  <li>Amazon Web Services</li>
+                  <li>Git/GitHub</li>
+                  <li>GitHub Actions</li>
                   <li>Docker</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Machine Learning</h3>
-                <ul>
-                  <li>Scikit-learn</li>
-                  <li>Neural Networks</li>
-                  <li>Deep Learning</li>
+                  <li>MySQL Workbench</li>
                 </ul>
               </div>
             </div>
           </section>
 
           <section id="projects" className="section">
-            <h2>Data Science Projects</h2>
+            <h2>Projects</h2>
             <hr />
               <div className="certifications-grid">
-                {dataScienceProjects.map((project) => (
+                {softwareProjects.map((project) => (
                   <div key={project.id} className="card certification-card">
                     <div className="project-icon">
                       {project.icon}
@@ -284,31 +294,6 @@ function App() {
                   </div>
                 ))}
             </div>
-          </section>
-
-          <section id="software-projects" className="section">
-            <h2>Software Engineering Projects</h2>
-            <hr />
-              <div className="projects-grid">
-                {softwareProjects.map((project) => (
-                  <div key={project.id} className="card project-card">
-                    <div className="project-icon">
-                      {project.icon}
-                    </div>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-
-                    <div className="project-more">
-                      <button 
-                        className="verify-button"
-                        onClick={() => handleMoreClick(project)}
-                      >
-                        More
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
           </section>
 
           <section id="certifications" className="section">

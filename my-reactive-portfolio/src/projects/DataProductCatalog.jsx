@@ -9,7 +9,7 @@ function DataProductCatalog() {
       </div>
 
       <div className="description-box">
-        <h4>Description</h4>
+        <h4>Project Description</h4>
         <p>
           This application serves as a comprehensive data product catalog, ingesting metadata to create and manage data assets. Users can design “blueprints,” which group relevant assets into collections for various business needs. An internal recommendation algorithm then leverages these blueprints to suggest potential data products. Users can also browse a catalog of existing data products, assets, and blueprints, each associated with one or more owners to facilitate collaboration and governance.
         </p>
@@ -40,7 +40,7 @@ function DataProductCatalog() {
       <h4>Repository Link</h4>
 
       <p>
-        Note: This repository is private. If you would like access, please contact me at <a href="mailto:jamkocak88@gmail.com">jamkocak88@gmail.com</a>. A demo video will be added to this description soon.
+        This repository is unavailable.
       </p>
       </div>
     </div>
