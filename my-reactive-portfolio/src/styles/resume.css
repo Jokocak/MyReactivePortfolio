@@ -1,0 +1,134 @@
+/* Allow scrolling for the HTML resume (PDF embed handled its own scroll) */
+.resume-modal-content {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.resume-document {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+  text-align: left;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.resume-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.resume-title {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.resume-contacts {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.resume-contacts a {
+  color: #646cff;
+  text-decoration: none;
+}
+
+.resume-contacts a:hover {
+  text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 1.75rem;
+}
+
+.resume-section h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.resume-entry {
+  margin-bottom: 1rem;
+}
+
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.resume-entry-header a {
+  color: #646cff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.resume-entry-header a:hover {
+  text-decoration: underline;
+}
+
+.resume-entry-subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.resume-entry p {
+  margin: 0.3rem 0;
+}
+
+.resume-cert-status {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+.resume-skills {
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.resume-skill-group {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.resume-skill-group dt {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.resume-skill-group dd {
+  margin: 0;
+  color: #444;
+}

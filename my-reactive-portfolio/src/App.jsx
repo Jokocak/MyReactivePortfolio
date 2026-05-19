@@ -14,6 +14,7 @@ import './App.css'
 import DataProductCatalog from "./projects/DataProductCatalog";
 import CoffeeMaker from "./projects/CoffeeMaker";
 import Clarus from "./projects/Clarus";
+import ResumeBody from "./components/ResumeBody";
 
 // Content
 import { profile } from "./content/profile";
@@ -396,13 +397,7 @@ function App() {
               <div className="resume-modal-wrapper">
                 <div className="resume-modal-inner">
                   <div className="resume-modal-content">
-                    <object
-                      data={profile.resume}
-                      type="application/pdf"
-                      className="pdf-preview"
-                    >
-                      Your browser does not support PDFs.
-                    </object>
+                    <ResumeBody />
                   </div>
                 </div>
               </div>
