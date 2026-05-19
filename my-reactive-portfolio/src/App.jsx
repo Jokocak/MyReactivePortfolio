@@ -6,14 +6,14 @@ import { FaCode } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
-import { FaDisplay } from "react-icons/fa6";
+import { FaWallet } from "react-icons/fa6";
 import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
 import DataProductCatalog from "./projects/DataProductCatalog";
 import CoffeeMaker from "./projects/CoffeeMaker";
-import KitchenDisplaySystem from "./projects/KitchenDisplaySystem";
+import Clarus from "./projects/Clarus";
 
 // Content
 import { profile } from "./content/profile";
@@ -25,7 +25,7 @@ import { softwareProjects } from "./content/projects";
 import { certifications } from "./content/certifications";
 
 const projectIconMap = {
-  display: <FaDisplay />,
+  wallet: <FaWallet />,
   code: <FaCode />,
   database: <FaDatabase />,
 };
@@ -101,7 +101,7 @@ function App() {
   const projectComponents = {
     2: <DataProductCatalog />,
     4: <CoffeeMaker />,
-    5: <KitchenDisplaySystem />,
+    6: <Clarus />,
   };
 
 

@@ -1,10 +1,10 @@
 export const softwareProjects = [
   {
-    id: 5,
-    title: 'Kitchen Display System',
+    id: 6,
+    title: 'Clarus',
     description:
-      'Designed a full-stack kitchen display system integrating Clover API for real-time order display, with a scalable Expo/React Native, Django, and MySQL backend, reducing errors by 30%, boosting order processing by 20%, and enhancing team productivity by 15% through Agile mentorship and a Project Design Document.',
-    iconKey: 'display',
+      'Cross-platform full-stack budgeting and debt-payoff app built in Flutter and Supabase. Aggregates accounts, balances, and liabilities from over 1,000 financial institutions via MethodFi and Plaid, and compares avalanche, snowball, and dynamic-programming payoff strategies against realistic cash-flow constraints.',
+    iconKey: 'wallet',
   },
   {
     id: 4,

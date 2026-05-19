@@ -75,17 +75,21 @@ Each card has a description and a "More" button that opens a modal whose
 contents come from the per-project component imported in `App.jsx` and
 registered in the `projectComponents` map keyed by project `id`. Icons are
 referenced by string `iconKey` and resolved through `projectIconMap` at the
-top of `App.jsx`.
+top of `App.jsx`. Order on the site reflects array order: Clarus first
+(most recent), then CoffeeMaker, then Data Product Catalog.
 
-### Kitchen Display System (id 5)
-- **Description (verbatim, projects.js):** "Designed a full-stack kitchen
-  display system integrating Clover API for real-time order display, with a
-  scalable Expo/React Native, Django, and MySQL backend, reducing errors by
-  30%, boosting order processing by 20%, and enhancing team productivity by
-  15% through Agile mentorship and a Project Design Document."
-- **Modal component:** `src/projects/KitchenDisplaySystem.jsx`
-- **Repo:** https://github.com/Jokocak/PoppyCoxKDS
-- **Video:** placeholder — modal currently says "Coming Soon".
+### Clarus (id 6)
+- **Description (verbatim, projects.js):** "Cross-platform full-stack
+  budgeting and debt-payoff app built in Flutter and Supabase. Aggregates
+  accounts, balances, and liabilities from over 1,000 financial institutions
+  via MethodFi and Plaid, and compares avalanche, snowball, and
+  dynamic-programming payoff strategies against realistic cash-flow
+  constraints."
+- **Modal component:** `src/projects/Clarus.jsx`
+- **Repo:** source private during development (modal renders a
+  `.disclaimer-box` explaining this).
+- **Demo:** placeholder — `demo-box` is empty, awaiting a recorded walkthrough.
+- **Icon:** `FaWallet` from `react-icons/fa6` (`iconKey: 'wallet'`).
 
 ### CoffeeMaker (id 4)
 - **Description (verbatim, projects.js):** "Collaborated in a team to develop
@@ -108,17 +112,12 @@ top of `App.jsx`.
 
 ---
 
-## Projects — missing entirely
+## Projects — intentionally NOT shown
 
-Present in the resume source-of-truth but absent from the portfolio:
-
-- **Clarus** (Jan 2026 – Present) — Flutter / Dart / Supabase / Postgres /
-  MethodFi / Plaid / OAuth. Cross-platform budgeting & debt-payoff app with
-  Plaid + MethodFi aggregation, RLS-isolated multi-tenant Postgres, dynamic-
-  programming payoff optimizer.
-- **Multiplayer Kayak Game** (Apr 2026 – Present) — Godot 4 / GDScript /
-  ENet / Steamworks. Authoritative server with client-side prediction +
-  reconciliation, Steamworks matchmaking.
+The **Multiplayer Kayak Game** (Apr 2026 – Present, Godot 4 / GDScript /
+ENet / Steamworks) exists in the resume source-of-truth but is deliberately
+kept off the portfolio. If/when it becomes ready to surface, add it as a
+new entry in `src/content/projects.js` plus a modal in `src/projects/`.
 
 ---
 
