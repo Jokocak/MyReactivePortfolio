@@ -41,7 +41,9 @@ something belongs on the portfolio but isn't there yet, it goes under
 
 ## Experience
 
-**[stale] Portfolio has NO experience section.**
+**[stale] Portfolio has NO experience section yet.** The data file
+`src/content/experience.js` exists as an empty array — populated and rendered
+in a future phase.
 
 Resume source-of-truth: Wells Fargo — Associate Engineer, July 2025–Present
 (Charlotte, NC). Tenure has two phases:
@@ -59,13 +61,15 @@ Adding this section is the single biggest content gap.
 
 ## Projects — currently displayed
 
-Driven by the `softwareProjects` array at
-`my-reactive-portfolio/src/App.jsx:120–139`. Each card has a description and a
-"More" button that opens a modal whose contents come from
-`projectComponents` (`App.jsx:95–101`) keyed by project `id`.
+Card data lives in `src/content/projects.js` (the `softwareProjects` array).
+Each card has a description and a "More" button that opens a modal whose
+contents come from the per-project component imported in `App.jsx` and
+registered in the `projectComponents` map keyed by project `id`. Icons are
+referenced by string `iconKey` and resolved through `projectIconMap` at the
+top of `App.jsx`.
 
 ### Kitchen Display System (id 5)
-- **Description (verbatim, App.jsx:124):** "Designed a full-stack kitchen
+- **Description (verbatim, projects.js):** "Designed a full-stack kitchen
   display system integrating Clover API for real-time order display, with a
   scalable Expo/React Native, Django, and MySQL backend, reducing errors by
   30%, boosting order processing by 20%, and enhancing team productivity by
@@ -75,7 +79,7 @@ Driven by the `softwareProjects` array at
 - **Video:** placeholder — modal currently says "Coming Soon".
 
 ### CoffeeMaker (id 4)
-- **Description (verbatim, App.jsx:130):** "Collaborated in a team to develop
+- **Description (verbatim, projects.js):** "Collaborated in a team to develop
   CoffeeMaker, a fullstack web application for coffee order management.
   Implemented robust CRUD operations and REST API endpoints using Spring Boot
   on the backend, and built a dynamic, user-friendly frontend. The project
@@ -86,28 +90,12 @@ Driven by the `softwareProjects` array at
 - **Video:** `src/assets/CoffeeMakerDemo.mp4` (2.4 MB).
 
 ### Data Product Catalog (id 2)
-- **Description (verbatim, App.jsx:136):** "Engineered a scalable PostgreSQL
+- **Description (verbatim, projects.js):** "Engineered a scalable PostgreSQL
   ingestion pipeline for millions of records, developed a sub-minute
   identification algorithm for optimal data product blueprint matches, and
   implemented full CRUD functionality to manage 10k+ data assets."
 - **Modal component:** `src/projects/DataProductCatalog.jsx`
 - **No repo link** (private / unreleased).
-
----
-
-## Projects — defined in code but NOT displayed
-
-`dataScienceProjects` array (`App.jsx:104–117`) is declared but never
-rendered. Two entries:
-
-- **Machine Learning Pipeline Exploration (id 1)** — Pandas, scikit-learn,
-  Google Colab. Modal component: `src/projects/MachineLearningPipeline.jsx`.
-- **Synthea Data Generation (id 3)** — Synthea / Java. Modal component:
-  `src/projects/SyntheaDataGeneration.jsx`. Reachable only as id `3`, which
-  isn't in `softwareProjects`, so the component is effectively orphaned.
-
-The Data Product Catalog entry also appears in this array (duplicated from
-`softwareProjects`).
 
 ---
 
@@ -127,7 +115,7 @@ Present in the resume source-of-truth but absent from the portfolio:
 
 ## Skills (as displayed)
 
-Four hardcoded cards at `App.jsx:229–271`:
+Four cards driven by `src/content/skills.js`:
 
 | Card | Items |
 |------|-------|
@@ -147,15 +135,17 @@ undersells current capabilities.
 
 ## Certifications (as shown on site)
 
-- **Databricks Certified Data Engineer Associate** — credential link present
-  (App.jsx:312). Logo: `src/assets/databricks-logo-asset.png`.
-- **Microsoft Azure AI Essentials Professional Certificate** — status
-  "Credential In Progress" (App.jsx:334). Logo:
+Driven by `src/content/certifications.js`:
+
+- **Databricks Certified Data Engineer Associate** — `verifyUrl` set,
+  "Verify Credential" button. Logo: `src/assets/databricks-logo-asset.png`.
+- **Microsoft Azure AI Essentials Professional Certificate** — `verifyUrl`
+  is `null`, rendered as a disabled "Credential In Progress" button. Logo:
   `src/assets/microsoft-logo-asset.png`.
 
 ---
 
-## About / Bio (verbatim, App.jsx:204–206)
+## About / Bio (verbatim, `src/content/about.js`)
 
 > "I'm a software engineer with experience creating backend design, database
 > schemas, and APIs. I've built full-stack applications, designed robust
@@ -169,10 +159,13 @@ reflect AI / agent orchestration, distributed systems, or AppSec work.
 ## Resume PDF
 
 `src/assets/James_Kocak_Resume.pdf` (~80 KB) is the canonical resume artifact
-on the site. Surfaced via:
+on the site. Path is held in `src/content/profile.js` as `profile.resume` and
+consumed by the hero section. Surfaced via:
 
-- **Preview Resume** button (modal with `<object>` PDF embed) — App.jsx:183.
-- **Download Resume** link — App.jsx:192.
+- **Preview Resume** button — opens a modal that embeds the PDF via
+  `<object>` in `App.jsx`.
+- **Download Resume** link — `<a download>` in the hero, also pointing at
+  `profile.resume`.
 
 There is no resume builder in this repo. Updating the site's resume means
 replacing this PDF. Source for resume content is the resume repo's CLAUDE.md.
@@ -217,13 +210,45 @@ Sidebar is hidden on viewports below 768px.
 That's a Node SMTP package and almost certainly an install mistake — verify
 and remove before adding dependencies of your own.
 
+## Content architecture
+
+Site content is data-driven via the `src/content/` directory. `App.jsx` is
+the rendering shell — sections, layout, modals, event handlers — and pulls
+all copy/data from these modules:
+
+- `src/content/profile.js` — name, displayed title, photo asset, resume
+  asset, GitHub + LinkedIn URLs.
+- `src/content/about.js` — the About blurb (single exported string).
+- `src/content/education.js` — single education object (school, degree,
+  date, GPA, logo asset, alt text).
+- `src/content/experience.js` — array of experience entries. Currently
+  empty; renders nothing until populated and an Experience section is
+  wired up.
+- `src/content/skills.js` — array of `{ title, items[] }` skill cards.
+- `src/content/projects.js` — `softwareProjects` array of
+  `{ id, title, description, iconKey }`. `iconKey` is resolved to a JSX
+  icon element by `projectIconMap` at the top of `App.jsx` — that keeps
+  the data file free of JSX so it stays serializable-ish and easy to
+  re-source.
+- `src/content/certifications.js` — array of certification objects;
+  `verifyUrl: null` switches the button to the disabled "in progress"
+  style.
+
+Asset imports live inside the content modules (not `App.jsx`) so the data
+file is the single owner of "what photo / logo / file belongs to this
+entry."
+
 ## File map
 
 - `my-reactive-portfolio/src/App.jsx` — the entire site is one component
-  (~460 lines). Each section is a `<section id="...">` block.
+  (~390 lines). Each section is a `<section id="...">` block; data comes
+  from `src/content/`.
+- `my-reactive-portfolio/src/content/` — all site copy and data. See
+  Content architecture above.
 - `my-reactive-portfolio/src/App.css` — all styling.
 - `my-reactive-portfolio/src/projects/*.jsx` — modal contents per project.
-  Registered in `projectComponents` at App.jsx:95–101 keyed by project `id`.
+  Registered in the `projectComponents` map inside `App.jsx`, keyed by
+  project `id`.
 - `my-reactive-portfolio/src/assets/` — profile photo, resume PDF, project
   video, cert/school logos. Some unused 2–10 MB photos still ship in the
   bundle; trim before adding more.
@@ -232,11 +257,21 @@ and remove before adding dependencies of your own.
 
 ## Edit conventions
 
-- **Adding a project:** append to `softwareProjects` with a unique `id`, add
-  a modal component at `src/projects/<Name>.jsx`, register the id in
-  `projectComponents`. (Same pattern for any other project array.)
-- **Adding a skill:** edit the hardcoded `<ul>` inside the appropriate
-  `skill-card` block in `App.jsx`. There is no skills config file today.
+- **Adding a project:** add an entry to `src/content/projects.js` with a
+  unique `id`, set an `iconKey` (and register a new icon in
+  `projectIconMap` inside `App.jsx` if the key is new), create a modal
+  component at `src/projects/<Name>.jsx`, and register the id in the
+  `projectComponents` map inside `App.jsx`.
+- **Adding a skill:** add an item to an existing card in
+  `src/content/skills.js`, or add a new `{ title, items[] }` object to the
+  array for a new card. No JSX edits needed.
+- **Adding a certification:** add an entry to
+  `src/content/certifications.js`. Set `verifyUrl` to a string for an
+  active link or `null` to render the disabled "Credential In Progress"
+  style.
+- **Updating the bio, education, profile photo, social URLs, resume PDF
+  path:** edit the matching `src/content/*.js` file — never hardcode this
+  into `App.jsx`.
 - **Styling:** reuse `.card`, `.certifications-grid`, `.skill-card`,
   `.section` where they fit — those are the established patterns. New
   classes go in `App.css`.
@@ -256,6 +291,9 @@ and remove before adding dependencies of your own.
   drive-bys.
 - **Don't fabricate site content to match the resume.** If a section is
   stale, fix the section — don't pretend it already says the right thing.
+- **Don't hardcode copy back into `App.jsx`.** All site copy belongs in
+  `src/content/*.js`. If you find yourself typing a sentence inside JSX
+  that isn't UI chrome, route it through a content module instead.
 - **Don't commit `.env` or EmailJS secrets.** `.env` is gitignored; keep it
   that way.
 - **Don't ship the unused multi-MB photos** by adding new imports that
