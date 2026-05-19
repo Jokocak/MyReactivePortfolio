@@ -3,7 +3,7 @@ import resumeFile from '../assets/James_Kocak_Resume.pdf';
 
 export const profile = {
   name: 'James Kocak',
-  title: 'Software Engineer',
+  title: 'Associate Engineer',
   photo: profilePic,
   resume: resumeFile,
   github: 'https://github.com/Jokocak',

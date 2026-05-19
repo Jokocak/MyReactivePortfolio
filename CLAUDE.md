@@ -39,23 +39,32 @@ something belongs on the portfolio but isn't there yet, it goes under
 
 ---
 
-## Experience
+## Experience (as shown on site)
 
-**[stale] Portfolio has NO experience section yet.** The data file
-`src/content/experience.js` exists as an empty array — populated and rendered
-in a future phase.
+Driven by `src/content/experience.js`. Single entry currently:
 
-Resume source-of-truth: Wells Fargo — Associate Engineer, July 2025–Present
-(Charlotte, NC). Tenure has two phases:
+### Wells Fargo — Associate Engineer
+- **Location:** Charlotte, NC
+- **Dates:** July 2025 – Present
+- **Logo:** none yet (`logo: null`) — card renders details without a logo
+  until an asset is provided.
+- **Description (verbatim, paragraphs in `experience.js`):**
+  > "Building and maintaining the Automated Vulnerability Remediation System
+  > (AVRS) — a set of Python microservices that ingest application-security
+  > findings, route them through AI agents (including GitHub Copilot), and
+  > auto-open remediation pull requests. Architecture spans MongoDB-backed
+  > orchestration, Kafka-driven status tracking, and GitHub-integrated agent
+  > dispatch."
+  >
+  > "Earlier work on the team covered CI pipelines in GitHub Actions for
+  > Autosys JIL builds and Android project builds. Day-to-day work also
+  > includes code review and design discussions across Python codebases,
+  > with daily use of Claude and AI-powered developer tools to accelerate
+  > delivery."
 
-1. Phase 1 — CI pipelines (GitHub Actions for Autosys JIL builds and Android
-   project builds). Smaller scope.
-2. Phase 2 — AVRS (Automated Vulnerability Remediation System): three Python
-   microservices (Orchestrator, Tracker, Cloud Agent Provider) that route
-   AppSec findings through AI agents which auto-open remediation PRs. Uses
-   MongoDB, Kafka, GitHub Copilot. Main body of work.
-
-Adding this section is the single biggest content gap.
+Site copy intentionally avoids the unverified metrics flagged in the resume
+source-of-truth (e.g. "100+ teams", "60% PR acceptance rate", "thousands of
+events/day"). When those are confirmed there, this section can pick them up.
 
 ---
 
@@ -115,21 +124,20 @@ Present in the resume source-of-truth but absent from the portfolio:
 
 ## Skills (as displayed)
 
-Four cards driven by `src/content/skills.js`:
+Five cards driven by `src/content/skills.js`, rendered with the
+`.skills-secondary` wrapper (3-column grid):
 
 | Card | Items |
 |------|-------|
-| Programming Languages | Java, Python, C++ |
-| Soft Skills | Agile Methodologies, Technical Writing, Communication & Collaboration |
-| Software Engineering Skills | Full-Stack Development, Object-Oriented Programming, RESTful APIs, Database Design |
-| Industry-Specific Tools | Git/GitHub, GitHub Actions, Docker, MySQL Workbench |
+| Languages | Python, Java, TypeScript, JavaScript, Dart, SQL |
+| Frameworks & Libraries | React, Spring Boot, FastAPI, FastMCP, Flutter |
+| Data & Infrastructure | PostgreSQL, MongoDB, MySQL, Kafka, Docker, Kubernetes, GitHub Actions |
+| AI & Security | AI agent orchestration, LLM integration, Claude / MCP, OWASP, SAST / DAST, Vulnerability remediation |
+| Practices | Agile, Code Review, Technical Writing, Cross-functional Collaboration |
 
-**[stale]** Resume source-of-truth covers significantly more: TypeScript,
-JavaScript, Dart, GDScript, SQL; React, Spring Boot, FastAPI, FastMCP,
-Flutter; PostgreSQL, MySQL, MongoDB; Kafka; Kubernetes, JFrog Artifactory,
-Harness, Linux; AppSec / OWASP / SAST / DAST / vulnerability remediation;
-applied & agentic AI, LLM integration, Claude / MCP. The portfolio
-undersells current capabilities.
+Resume source-of-truth lists a few items intentionally omitted here to keep
+each card scannable: GDScript, JFrog Artifactory, Harness, Linux. Add to
+the relevant card if/when they become load-bearing to recruiter fit.
 
 ---
 
@@ -146,12 +154,21 @@ Driven by `src/content/certifications.js`:
 
 ## About / Bio (verbatim, `src/content/about.js`)
 
-> "I'm a software engineer with experience creating backend design, database
-> schemas, and APIs. I've built full-stack applications, designed robust
-> databases, and optimized algorithms for efficient runtimes."
+Two paragraphs:
 
-**[stale]** Predates Wells Fargo tenure and Clarus / Kayak projects. Doesn't
-reflect AI / agent orchestration, distributed systems, or AppSec work.
+> "I'm a software engineer who builds backend systems — Python microservices
+> with FastAPI, and the CI pipelines that automatically build, test, scan,
+> and publish their artifacts. The work I enjoy most is invisible: services
+> that quietly move data between systems so other people don't have to think
+> about it."
+>
+> "Lately I've been extending that into MCP servers with FastMCP — backend
+> services designed for LLM agents instead of human-facing apps. Same
+> instincts, new consumer."
+
+By convention, the About blurb does **not** name the employer — Wells Fargo
+mentions are kept isolated to the Experience section. Keep this split when
+editing the bio.
 
 ---
 
@@ -174,16 +191,22 @@ replacing this PDF. Source for resume content is the resume repo's CLAUDE.md.
 ## Site sections (rendering order)
 
 Single `<App>` component, hash-anchor navigation, no router. Sections in DOM
-order (sidebar nav at App.jsx:147–155):
+order (sidebar nav lives inside the `.sidebar` `<nav>` at the top of
+`App.jsx`):
 
 1. `#home` — hero (photo, name, title, social icons, resume buttons)
 2. `#about`
-3. `#education`
+3. `#experience`
 4. `#skills`
 5. `#projects`
 6. `#certifications`
-7. `#thank-you` — closing message
-8. `#contact-me` — EmailJS form
+7. `#education`
+8. `#thank-you` — closing message
+9. `#contact-me` — EmailJS form
+
+Education sits below Certifications by design — the lead story is the
+Wells Fargo role + recent skills + projects + credentials; the degree is
+context, not the headline.
 
 Sidebar is hidden on viewports below 768px.
 
@@ -217,7 +240,8 @@ all copy/data from these modules:
 
 - `src/content/profile.js` — name, displayed title, photo asset, resume
   asset, GitHub + LinkedIn URLs.
-- `src/content/about.js` — the About blurb (single exported string).
+- `src/content/about.js` — the About blurb (array of paragraph strings;
+  each entry renders as its own `<p>` inside the About card).
 - `src/content/education.js` — single education object (school, degree,
   date, GPA, logo asset, alt text).
 - `src/content/experience.js` — array of experience entries. Currently

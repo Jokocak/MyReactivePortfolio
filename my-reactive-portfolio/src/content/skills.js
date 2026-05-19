@@ -1,27 +1,42 @@
 export const skills = [
   {
-    title: 'Programming Languages',
-    items: ['Java', 'Python', 'C++'],
+    title: 'Languages',
+    items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Dart', 'SQL'],
   },
   {
-    title: 'Soft Skills',
+    title: 'Frameworks & Libraries',
+    items: ['React', 'Spring Boot', 'FastAPI', 'FastMCP', 'Flutter'],
+  },
+  {
+    title: 'Data & Infrastructure',
     items: [
-      'Agile Methodologies',
+      'PostgreSQL',
+      'MongoDB',
+      'MySQL',
+      'Kafka',
+      'Docker',
+      'Kubernetes',
+      'GitHub Actions',
+    ],
+  },
+  {
+    title: 'AI & Security',
+    items: [
+      'AI agent orchestration',
+      'LLM integration',
+      'Claude / MCP',
+      'OWASP',
+      'SAST / DAST',
+      'Vulnerability remediation',
+    ],
+  },
+  {
+    title: 'Practices',
+    items: [
+      'Agile',
+      'Code Review',
       'Technical Writing',
-      'Communication & Collaboration',
+      'Cross-functional Collaboration',
     ],
-  },
-  {
-    title: 'Software Engineering Skills',
-    items: [
-      'Full-Stack Development',
-      'Object-Oriented Programming',
-      'RESTful APIs',
-      'Database Design',
-    ],
-  },
-  {
-    title: 'Industry-Specific Tools',
-    items: ['Git/GitHub', 'GitHub Actions', 'Docker', 'MySQL Workbench'],
   },
 ];

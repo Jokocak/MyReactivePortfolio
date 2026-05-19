@@ -19,6 +19,7 @@ import KitchenDisplaySystem from "./projects/KitchenDisplaySystem";
 import { profile } from "./content/profile";
 import { about } from "./content/about";
 import { education } from "./content/education";
+import { experience } from "./content/experience";
 import { skills } from "./content/skills";
 import { softwareProjects } from "./content/projects";
 import { certifications } from "./content/certifications";
@@ -112,10 +113,11 @@ function App() {
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Me</a></li>
-            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#thank-you">Contact Me</a></li>
           </ul>
         </nav>
@@ -166,36 +168,44 @@ function App() {
             <h2>About Me</h2>
             <hr />
 
-            <div className="card">
-              {about}
+            <div className="card about-card">
+              {about.map((para, idx) => (
+                <p key={idx}>{para}</p>
+              ))}
             </div>
           </section>
 
-          <section id="education" className="section">
-            <h2>Education</h2>
+          <section id="experience" className="section">
+            <h2>Experience</h2>
             <hr />
 
-            <div className="card education-card">
-              <img
-                src={education.logo}
-                alt={education.logoAlt}
-                className="school-logo"
-              />
+            {experience.map((exp) => (
+              <div key={`${exp.company}-${exp.role}`} className="card experience-card">
+                {exp.logo && (
+                  <img
+                    src={exp.logo}
+                    alt={exp.logoAlt}
+                    className="company-logo"
+                  />
+                )}
 
-              <div className="education-details">
-                <h3>{education.school}</h3>
-                <p>{education.degree}</p>
-                <p>{education.date}</p>
-                <p>GPA: {education.gpa}</p>
+                <div className="experience-details">
+                  <h3>{exp.role}</h3>
+                  <p><strong>{exp.company}</strong> · {exp.location}</p>
+                  <p>{exp.date}</p>
+                  {exp.description.map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
           </section>
 
           <section id="skills" className="section">
             <h2>Skills</h2>
             <hr />
 
-            <div className="skills-primary">
+            <div className="skills-secondary">
               {skills.map((skill) => (
                 <div key={skill.title} className="card skill-card">
                   <h3>{skill.title}</h3>
@@ -268,6 +278,26 @@ function App() {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+
+          <section id="education" className="section">
+            <h2>Education</h2>
+            <hr />
+
+            <div className="card education-card">
+              <img
+                src={education.logo}
+                alt={education.logoAlt}
+                className="school-logo"
+              />
+
+              <div className="education-details">
+                <h3>{education.school}</h3>
+                <p>{education.degree}</p>
+                <p>{education.date}</p>
+                <p>GPA: {education.gpa}</p>
+              </div>
             </div>
           </section>
 
