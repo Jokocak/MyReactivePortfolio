@@ -1,9 +1,3 @@
-.pdf-preview {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
 /* ----------------- Project Modal ----------------- */
 .project-modal-overlay {
   position: fixed;
@@ -46,49 +40,7 @@
   box-sizing: border-box;
 }
 
-/* ----------------- Resume Modal ----------------- */
-.resume-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.resume-modal-container {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  height: 90vh;
-}
-
-.resume-modal-wrapper {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: white;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.resume-modal-inner {
-  width: 100%;
-  height: 100%;
-}
-
-.resume-modal-content {
-  width: 100%;
-  height: 100%;
-}
-
-/* ----------------- Shared Close Button ----------------- */
-.project-modal-close,
-.resume-modal-close {
+.project-modal-close {
   position: absolute;
   top: 1%;
   right: -3.5rem;
@@ -110,8 +62,7 @@
   transition: all 0.3s ease;
 }
 
-.project-modal-close:hover,
-.resume-modal-close:hover {
+.project-modal-close:hover {
   background-color: #646cff;
   transform: translateY(-3px);
 }

@@ -14,7 +14,6 @@ import './App.css'
 import DataProductCatalog from "./projects/DataProductCatalog";
 import CoffeeMaker from "./projects/CoffeeMaker";
 import Clarus from "./projects/Clarus";
-import ResumeBody from "./components/ResumeBody";
 
 // Content
 import { profile } from "./content/profile";
@@ -33,7 +32,6 @@ const projectIconMap = {
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [showResumeModal, setShowResumeModal] = useState(false);
 
 
   const handleMoreClick = (project) => {
@@ -145,15 +143,6 @@ function App() {
                   <a href="#contact-me">
                     <MdEmail />
                   </a>
-                </div>
-
-                <div className="resume-preview">
-                  <button
-                    className="resume-button"
-                    onClick={() => setShowResumeModal(true)}
-                  >
-                    Preview Resume
-                  </button>
                 </div>
 
                 <div className="resume-download">
@@ -382,28 +371,6 @@ function App() {
               <button
                 className="project-modal-close"
                 onClick={handleCloseModal}
-              >
-                &times;
-              </button>
-            </div>
-          </div>
-        )}
-
-
-        {/* Resume Modal */}
-        {showResumeModal && (
-          <div className="resume-modal-overlay" onClick={() => setShowResumeModal(false)}>
-            <div className="resume-modal-container">
-              <div className="resume-modal-wrapper">
-                <div className="resume-modal-inner">
-                  <div className="resume-modal-content">
-                    <ResumeBody />
-                  </div>
-                </div>
-              </div>
-              <button
-                className="resume-modal-close"
-                onClick={() => setShowResumeModal(false)}
               >
                 &times;
               </button>

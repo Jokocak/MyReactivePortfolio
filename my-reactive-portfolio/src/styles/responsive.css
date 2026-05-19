@@ -85,20 +85,3 @@
   }
 }
 
-@media (max-width: 600px) {
-  .resume-document {
-    padding: 1.5rem;
-  }
-
-  .resume-skill-group {
-    grid-template-columns: 1fr;
-    gap: 0.1rem;
-  }
-
-  .resume-entry-header,
-  .resume-entry-subheader {
-    flex-direction: column;
-    gap: 0;
-    align-items: flex-start;
-  }
-}

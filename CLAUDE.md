@@ -173,27 +173,19 @@ editing the bio.
 
 ## Resume
 
-Two surfaces serve different intents:
+By design, the **portfolio itself is the resume preview** — every section
+(Experience, Skills, Projects, Certifications, Education) is what a
+recruiter would see on a paper resume, rendered in HTML. There is no
+in-modal HTML preview.
 
-- **Preview Resume** button — opens a modal that renders an HTML resume
-  via `src/components/ResumeBody.jsx`. The component composes its content
-  from the same `src/content/*.js` modules that power the rest of the site
-  (profile, about, experience, education, skills, projects, certifications)
-  — so editing any of those files updates both the site and the resume
-  preview at once. No phone number is rendered here (the public site
-  intentionally surfaces only GitHub + LinkedIn + contact form).
-- **Download Resume** link — `<a download>` in the hero pointing at
-  `src/assets/James_Kocak_Resume.pdf` (~80 KB) via
-  `profile.resume`. This is the canonical downloadable artifact a
-  recruiter actually gets.
+The hero exposes a single **Download Resume** link (`<a download>`)
+pointing at `src/assets/James_Kocak_Resume.pdf` (~80 KB) via
+`profile.resume`. That PDF is the canonical artifact a recruiter actually
+takes away.
 
-The PDF and the rendered preview are **two surfaces of the same content**
-and must be kept in sync until a future task auto-generates the PDF from
-the same source. Today, updating the site's downloadable resume still
-means replacing the PDF file.
-
-Source for resume content (facts, dates, project blurbs) is the resume
-repo's CLAUDE.md.
+There is no resume builder in this repo. Updating the site's downloadable
+resume means replacing the PDF file. Source for resume content (facts,
+dates, project blurbs) is the resume repo's CLAUDE.md.
 
 ---
 
@@ -289,17 +281,12 @@ entry."
   - `hero.css`, `about.css`, `experience.css`, `education.css`,
     `skills.css`, `projects.css`, `certifications.css`, `forms.css` —
     section-scoped rules
-  - `modals.css` — both modals + close button + `.pdf-preview` +
-    `.demo-box video` + `.credentials-box`
-  - `resume.css` — typography and layout for `ResumeBody` (also overrides
-    `.resume-modal-content` to allow scrolling)
+  - `modals.css` — project modal chrome + close button + `.demo-box video`
+    + `.credentials-box`
   - `responsive.css` — all `@media` queries (imported last so they win)
 - `my-reactive-portfolio/src/projects/*.jsx` — modal contents per project.
   Registered in the `projectComponents` map inside `App.jsx`, keyed by
   project `id`.
-- `my-reactive-portfolio/src/components/ResumeBody.jsx` — structured HTML
-  resume rendered inside the Preview Resume modal. Reads from
-  `src/content/*.js` directly, no separate resume data file.
 - `my-reactive-portfolio/src/assets/` — profile photo, resume PDF, project
   video, cert/school logos. Some unused 2–10 MB photos still ship in the
   bundle; trim before adding more.
