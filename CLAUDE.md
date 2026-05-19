@@ -139,9 +139,9 @@ Driven by `src/content/certifications.js`:
 
 - **Databricks Certified Data Engineer Associate** — `verifyUrl` set,
   "Verify Credential" button. Logo: `src/assets/databricks-logo-asset.png`.
-- **Microsoft Azure AI Essentials Professional Certificate** — `verifyUrl`
-  is `null`, rendered as a disabled "Credential In Progress" button. Logo:
-  `src/assets/microsoft-logo-asset.png`.
+- **Claude Code Certification** — `verifyUrl` is `null`, rendered as a
+  disabled "Credential In Progress" button. Logo:
+  `src/assets/claude-logo-asset.png`.
 
 ---
 

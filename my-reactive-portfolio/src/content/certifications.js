@@ -1,5 +1,5 @@
 import databricksLogo from '../assets/databricks-logo-asset.png';
-import microsoftLogo from '../assets/microsoft-logo-asset.png';
+import claudeLogo from '../assets/claude-logo-asset.png';
 
 export const certifications = [
   {
@@ -13,11 +13,11 @@ export const certifications = [
     buttonText: 'Verify Credential',
   },
   {
-    title: 'Microsoft Azure AI Essentials Professional Certificate',
+    title: 'Claude Code Certification',
     description:
-      'This certification explores foundational AI and machine learning concepts on Azure, including generative AI, computer vision, natural language processing, responsible AI, and document intelligence, while covering best practices for managing diverse AI workloads.',
-    logo: microsoftLogo,
-    logoAlt: 'Microsoft logo',
+      'This certification covers building, debugging, and shipping software with Claude Code, including agentic workflows, tool use, and effective collaboration patterns with AI coding assistants.',
+    logo: claudeLogo,
+    logoAlt: 'Claude logo',
     verifyUrl: null,
     buttonText: 'Credential In Progress',
   },
