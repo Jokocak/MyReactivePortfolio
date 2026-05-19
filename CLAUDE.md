@@ -17,7 +17,7 @@ something belongs on the portfolio but isn't there yet, it goes under
 ## Identity & Contact (as shown on site)
 
 - **Name:** James Kocak
-- **Display title:** "Software Engineer"
+- **Display title:** "Associate Engineer"
 - **Location:** Charlotte, NC (not currently displayed in the UI)
 - **Email:** jamkocak88@gmail.com (routed through EmailJS contact form, not
   shown as plaintext)
