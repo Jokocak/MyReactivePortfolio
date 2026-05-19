@@ -1,0 +1,35 @@
+.experience-card {
+  display: flex;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  text-align: left;
+  gap: 1rem;
+}
+
+.experience-card:last-child {
+  margin-bottom: 0;
+}
+
+.company-logo {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.experience-details {
+  flex: 1;
+}
+
+.experience-details h3 {
+  margin: 0 0 0.3rem;
+}
+
+.experience-details p {
+  margin: 0.3rem 0;
+}
+
+.experience-details p + p {
+  margin-top: 0.75rem;
+}

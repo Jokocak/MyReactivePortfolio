@@ -216,8 +216,9 @@ Sidebar is hidden on viewports below 768px.
 ## Stack
 
 - **React 19** + **Vite 6**, vanilla JS (`.jsx`, no TypeScript).
-- **Styling:** vanilla CSS, everything in one file: `src/App.css` (~772
-  lines). Font: Montserrat (Google Fonts, loaded in `index.html`).
+- **Styling:** vanilla CSS, split per concern under `src/styles/`. `src/App.css`
+  is a thin index that `@import`s the per-concern files. Font: Montserrat
+  (Google Fonts, loaded in `index.html`).
 - **Icons:** `react-icons` — `FaGithub`, `FaLinkedin`, `MdEmail`,
   `FaDatabase`, `FaDisplay`, `FaCode`, `FaGears`, `LuBrainCircuit`.
 - **Contact form:** `@emailjs/browser`. Credentials are env vars in `.env`
@@ -267,7 +268,20 @@ entry."
   from `src/content/`.
 - `my-reactive-portfolio/src/content/` — all site copy and data. See
   Content architecture above.
-- `my-reactive-portfolio/src/App.css` — all styling.
+- `my-reactive-portfolio/src/App.css` — thin `@import` index, pulls in
+  every file in `src/styles/`.
+- `my-reactive-portfolio/src/styles/` — per-concern CSS modules. One file
+  per section / shared concern:
+  - `base.css` — `#root`, `.card`
+  - `layout.css` — `.layout`, `.sidebar`, `.portfolio-container`,
+    `.section`, `hr`
+  - `buttons.css` — `.verify-button` (shared by projects + certifications)
+  - `hero.css`, `about.css`, `experience.css`, `education.css`,
+    `skills.css`, `projects.css`, `certifications.css`, `forms.css` —
+    section-scoped rules
+  - `modals.css` — both modals + close button + `.pdf-preview` +
+    `.demo-box video` + `.credentials-box`
+  - `responsive.css` — all `@media` queries (imported last so they win)
 - `my-reactive-portfolio/src/projects/*.jsx` — modal contents per project.
   Registered in the `projectComponents` map inside `App.jsx`, keyed by
   project `id`.
@@ -296,7 +310,10 @@ entry."
   into `App.jsx`.
 - **Styling:** reuse `.card`, `.certifications-grid`, `.skill-card`,
   `.section` where they fit — those are the established patterns. New
-  classes go in `App.css`.
+  classes go in the matching file under `src/styles/`. If a new section is
+  added, create a new file (e.g. `src/styles/awards.css`) and add an
+  `@import` line to `App.css`. Media queries belong in `responsive.css`,
+  not co-located with the section they target.
 - **Run locally:** `cd my-reactive-portfolio && npm run dev`.
 - **Lint:** `npm run lint`.
 - **Build:** `npm run build` (outputs to `dist/`).

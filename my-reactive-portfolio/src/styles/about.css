@@ -1,0 +1,12 @@
+.about-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-card p {
+  margin: 0 0 1rem;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
