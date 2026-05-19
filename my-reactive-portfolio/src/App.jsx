@@ -7,22 +7,27 @@ import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
 import { FaDatabase } from "react-icons/fa6";
 import { FaDisplay } from "react-icons/fa6";
-import { FaGears } from "react-icons/fa6";
-import { LuBrainCircuit } from "react-icons/lu";
 import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
-import profilePic from './assets/jamkocak88@gmail.com-1.jpg'
-import resumeFile from './assets/James_Kocak_Resume.pdf'
-import databricksLogo from './assets/databricks-logo-asset.png'
-import microsoftLogo from './assets/microsoft-logo-asset.png'
-import ncsuLogo from './assets/ncsu-logo-asset.png'
-import MachineLearningPipeline from "./projects/MachineLearningPipeline";
 import DataProductCatalog from "./projects/DataProductCatalog";
-import SyntheaDataGeneration from "./projects/SyntheaDataGeneration";
 import CoffeeMaker from "./projects/CoffeeMaker";
 import KitchenDisplaySystem from "./projects/KitchenDisplaySystem";
+
+// Content
+import { profile } from "./content/profile";
+import { about } from "./content/about";
+import { education } from "./content/education";
+import { skills } from "./content/skills";
+import { softwareProjects } from "./content/projects";
+import { certifications } from "./content/certifications";
+
+const projectIconMap = {
+  display: <FaDisplay />,
+  code: <FaCode />,
+  database: <FaDatabase />,
+};
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -47,7 +52,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const templateParams = {
         name: formData.name,
@@ -68,7 +73,7 @@ function App() {
         message: ''
       });
       alert('Thank you! Your message has been sent.');
-      
+
     } catch (error) {
       console.error('Error sending email:', error);
       alert('Sorry, there was an error sending your message. Please try again.');
@@ -93,50 +98,10 @@ function App() {
 
   // project Components
   const projectComponents = {
-    1: <MachineLearningPipeline />,
     2: <DataProductCatalog />,
-    3: <SyntheaDataGeneration />,
     4: <CoffeeMaker />,
     5: <KitchenDisplaySystem />,
   };
-
-  // Data Science Projects
-  const dataScienceProjects = [
-    {
-      id: 1,
-      title: "Machine Learning Pipeline Exploration",
-      description: "Developed a robust ML pipeline detailing dataset features and biases, defining a hypothetical use-case, applying preprocessing and feature selection, comparing logistic regression and decision trees, and integrating fairness and interpretability measures.",
-      icon: <LuBrainCircuit />,
-    },
-    {
-      id: 2,
-      title: "Data Product Catalog",
-      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
-      icon: <FaDatabase />,
-    },
-  ];
-
-  // Software Engineering Projects
-  const softwareProjects = [
-    {
-      id: 5,
-      title: "Kitchen Display System",
-      description: "Designed a full-stack kitchen display system integrating Clover API for real-time order display, with a scalable Expo/React Native, Django, and MySQL backend, reducing errors by 30%, boosting order processing by 20%, and enhancing team productivity by 15% through Agile mentorship and a Project Design Document.",
-      icon: <FaDisplay />,
-    },
-    {
-      id: 4,
-      title: "CoffeeMaker",
-      description: "Collaborated in a team to develop CoffeeMaker, a fullstack web application for coffee order management. Implemented robust CRUD operations and REST API endpoints using Spring Boot on the backend, and built a dynamic, user-friendly frontend. The project emphasized agile teamwork and best practices in software engineering.",
-      icon: <FaCode />,
-    },
-    {
-      id: 2,
-      title: "Data Product Catalog",
-      description: "Engineered a scalable PostgreSQL ingestion pipeline for millions of records, developed a sub-minute identification algorithm for optimal data product blueprint matches, and implemented full CRUD functionality to manage 10k+ data assets.",
-      icon: <FaDatabase />,
-    },
-  ];
 
 
   return (
@@ -159,19 +124,19 @@ function App() {
           <section id="home" className="section">
             <div className="profile-container">
               <div className="profile-image">
-                <img src={profilePic} alt="Profile Picture" />
+                <img src={profile.photo} alt="Profile Picture" />
               </div>
-              
+
               <div className="profile-links">
-                <h2>James Kocak</h2>
+                <h2>{profile.name}</h2>
                 <hr />
-                <h2>Software Engineer</h2>
+                <h2>{profile.title}</h2>
 
                 <div className="social-links">
-                  <a href="https://github.com/Jokocak" target="_blank" rel="noopener noreferrer">
+                  <a href={profile.github} target="_blank" rel="noopener noreferrer">
                     <FaGithub />
                   </a>
-                  <a href="https://linkedin.com/in/james-kocak" target="_blank" rel="noopener noreferrer">
+                  <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
                     <FaLinkedin />
                   </a>
                   <a href="#contact-me">
@@ -187,9 +152,9 @@ function App() {
                     Preview Resume
                   </button>
                 </div>
-                
+
                 <div className="resume-download">
-                  <a href={resumeFile} download className="resume-button">
+                  <a href={profile.resume} download className="resume-button">
                     Download Resume
                   </a>
                 </div>
@@ -202,26 +167,26 @@ function App() {
             <hr />
 
             <div className="card">
-              I'm a software engineer with experience creating backend design, database schemas, and APIs. I've built full-stack applications, designed robust databases, and optimized algorithms for efficient runtimes.
+              {about}
             </div>
           </section>
-          
+
           <section id="education" className="section">
             <h2>Education</h2>
             <hr />
 
             <div className="card education-card">
-              <img 
-                src={ncsuLogo} 
-                alt="NC State Logo" 
+              <img
+                src={education.logo}
+                alt={education.logoAlt}
                 className="school-logo"
               />
 
               <div className="education-details">
-                <h3>North Carolina State University</h3>
-                <p>Bachelors in Computer Science</p>
-                <p>May 2025</p>
-                <p>GPA: 3.6 / 4.0</p>
+                <h3>{education.school}</h3>
+                <p>{education.degree}</p>
+                <p>{education.date}</p>
+                <p>GPA: {education.gpa}</p>
               </div>
             </div>
           </section>
@@ -229,45 +194,18 @@ function App() {
           <section id="skills" className="section">
             <h2>Skills</h2>
             <hr />
-            
+
             <div className="skills-primary">
-              <div className="skill-card card">
-                <h3>Programming Languages</h3>
-                <ul>
-                  <li>Java</li>
-                  <li>Python</li>
-                  <li>C++</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Soft Skills</h3>
-                <ul>
-                  <li>Agile Methodologies</li>
-                  <li>Technical Writing</li>
-                  <li>Communication & Collaboration</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Software Engineering Skills</h3>
-                <ul>
-                  <li>Full-Stack Development</li>
-                  <li>Object-Oriented Programming</li>
-                  <li>RESTful APIs</li>
-                  <li>Database Design</li>
-                </ul>
-              </div>
-
-              <div className="card skill-card">
-                <h3>Industry-Specific Tools</h3>
-                <ul>
-                  <li>Git/GitHub</li>
-                  <li>GitHub Actions</li>
-                  <li>Docker</li>
-                  <li>MySQL Workbench</li>
-                </ul>
-              </div>
+              {skills.map((skill) => (
+                <div key={skill.title} className="card skill-card">
+                  <h3>{skill.title}</h3>
+                  <ul>
+                    {skill.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -278,13 +216,13 @@ function App() {
                 {softwareProjects.map((project) => (
                   <div key={project.id} className="card certification-card">
                     <div className="project-icon">
-                      {project.icon}
+                      {projectIconMap[project.iconKey]}
                     </div>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
 
                     <div className="project-more">
-                      <button 
+                      <button
                         className="verify-button"
                         onClick={() => handleMoreClick(project)}
                       >
@@ -299,49 +237,44 @@ function App() {
           <section id="certifications" className="section">
             <h2>Certifications</h2>
             <hr />
-            
+
             <div className="certifications-grid">
-              <div className="card certification-card">
-                <img src={databricksLogo} alt="Certification 1" className="certification-image" />
-                <h3>Databricks Certified Data Engineer Associate</h3>
+              {certifications.map((cert) => (
+                <div key={cert.title} className="card certification-card">
+                  <img src={cert.logo} alt={cert.logoAlt} className="certification-image" />
+                  <h3>{cert.title}</h3>
 
-                <p>This certification shows proficiency in using the Databricks Lakehouse Platform for foundational data engineering tasks, including understanding its architecture, executing multi-hop ETL tasks with Apache Spark™ SQL and Python, processing data incrementally, deploying production pipelines and dashboards, and managing data governance.</p>
+                  <p>{cert.description}</p>
 
-                <div className="certification-verify">
-                  <a 
-                    href="https://credentials.databricks.com/1e6ffc4a-ee0e-4e2b-9151-713b1e3d738f#acc.mi6sxoC8" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="verify-button"
-                  >
-                    Verify Credential
-                  </a>
+                  <div className="certification-verify">
+                    {cert.verifyUrl ? (
+                      <a
+                        href={cert.verifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="verify-button"
+                      >
+                        {cert.buttonText}
+                      </a>
+                    ) : (
+                      <a
+                        href="#"
+                        className="verify-button disabled"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        {cert.buttonText}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-
-              <div className="card certification-card">
-                <img src={microsoftLogo} alt="Certification 2" className="certification-image" />
-                <h3>Microsoft Azure AI Essentials Professional Certificate</h3>
-
-                <p>This certification explores foundational AI and machine learning concepts on Azure, including generative AI, computer vision, natural language processing, responsible AI, and document intelligence, while covering best practices for managing diverse AI workloads.</p>
-
-                <div className="certification-verify">
-                  <a 
-                    href="#" 
-                    className="verify-button disabled"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Credential In Progress
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
 
           <section id="thank-you" className="section">
             <h2>Thank you!</h2>
             <hr />
-            
+
             <div className="card">
               Thank you for taking the time to read my portfolio!
               <br />
@@ -353,12 +286,12 @@ function App() {
           <section id="contact-me" className="section">
             <h2>Contact Me</h2>
             <hr />
-            
+
             <div className="contact-form-container">
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="name"
                     placeholder="Your Name"
                     className="form-input"
@@ -369,8 +302,8 @@ function App() {
                 </div>
 
                 <div className="form-group">
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     name="email"
                     placeholder="Your Email"
                     className="form-input"
@@ -381,7 +314,7 @@ function App() {
                 </div>
 
                 <div className="form-group">
-                  <textarea 
+                  <textarea
                     name="message"
                     placeholder="Your Message"
                     className="form-input message-input"
@@ -392,9 +325,9 @@ function App() {
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
-                  className="submit-button" 
+                <button
+                  type="submit"
+                  className="submit-button"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -415,8 +348,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <button 
-                className="project-modal-close" 
+              <button
+                className="project-modal-close"
                 onClick={handleCloseModal}
               >
                 &times;
@@ -433,9 +366,9 @@ function App() {
               <div className="resume-modal-wrapper">
                 <div className="resume-modal-inner">
                   <div className="resume-modal-content">
-                    <object 
-                      data={resumeFile} 
-                      type="application/pdf" 
+                    <object
+                      data={profile.resume}
+                      type="application/pdf"
                       className="pdf-preview"
                     >
                       Your browser does not support PDFs.
@@ -443,8 +376,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <button 
-                className="resume-modal-close" 
+              <button
+                className="resume-modal-close"
                 onClick={() => setShowResumeModal(false)}
               >
                 &times;
