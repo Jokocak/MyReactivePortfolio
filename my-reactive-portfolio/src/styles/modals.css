@@ -1,0 +1,115 @@
+/* ----------------- Project Modal ----------------- */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.project-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 98vh;
+}
+
+.project-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.project-modal-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.project-modal-content {
+  max-height: calc(100vh - 2rem);
+  padding: 1rem 2rem 2rem 2rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 1%;
+  right: -3.5rem;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.project-modal-close:hover {
+  background-color: #646cff;
+  transform: translateY(-3px);
+}
+
+/* ----------------- Project Modal Content Boxes ----------------- */
+.credentials-box {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem auto 0 auto;
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.1);
+  display: block;
+  max-width: 400px;
+  text-align: left;
+}
+
+.credentials-box h4 {
+  margin-top: 0;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.credential-pair {
+  margin-bottom: 1rem;
+}
+
+.credential-label {
+  font-weight: 500;
+  color: #646cff;
+  margin-right: .4rem;
+}
+
+.credential-value {
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  color: #1a1a1a;
+  background: #f5f7fa;
+  border-radius: 4px;
+  padding: 3px 8px;
+  box-shadow: 0 1px 4px 1px rgba(100, 100, 100, 0.04);
+  font-size: 1rem;
+  margin-left: .2rem;
+}
+
+.demo-box video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 8px;
+}

@@ -1,0 +1,27 @@
+.verify-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+}
+
+.verify-button:hover {
+  background-color: #535bf2;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.verify-button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+}
+
+.verify-button.disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+}

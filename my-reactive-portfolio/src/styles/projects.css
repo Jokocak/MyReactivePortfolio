@@ -1,0 +1,60 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.project-card h3 {
+  margin: 1rem 0;
+  color: #1a1a1a;
+  font-size: 1.4rem;
+}
+
+.project-card p {
+  color: #666;
+  line-height: 1.5;
+  flex: 1;
+  margin: 1rem 0;
+}
+
+.project-icon {
+  font-size: 5rem;
+  margin: 1rem 0;
+  color: #1a1a1a;
+}
+
+.project-more {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.single-project-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(300px, 600px));
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  margin: 0 auto;
+}

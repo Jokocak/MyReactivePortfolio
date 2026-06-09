@@ -1,0 +1,78 @@
+.home-section {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profile-image {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+}
+
+.profile-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid black;
+}
+
+.profile-links {
+  flex: 1;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+  justify-content: center;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a svg {
+  font-size: 22px;
+}
+
+.social-links a:hover {
+  background-color: #646cff;
+  transform: translateY(-3px);
+}
+
+.resume-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #535bf2;
+  color: white;
+  transform: translateY(-3px);
+}

@@ -1,0 +1,23 @@
+.education-card {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  gap: 1rem;
+}
+
+.school-logo {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.education-details {
+  flex: 1;
+}
+
+.education-details h3,
+.education-details p {
+  margin: 0.3rem 0;
+}
