@@ -82,9 +82,8 @@ top of `App.jsx`. Order on the site reflects array order: Clarus first
 - **Description (verbatim, projects.js):** "Cross-platform full-stack
   budgeting and debt-payoff app built in Flutter and Supabase. Aggregates
   accounts, balances, and liabilities from over 1,000 financial institutions
-  via MethodFi and Plaid, and compares avalanche, snowball, and
-  dynamic-programming payoff strategies against realistic cash-flow
-  constraints."
+  via MethodFi and Plaid, and compares avalanche and snowball payoff
+  strategies against realistic cash-flow constraints."
 - **Modal component:** `src/projects/Clarus.jsx`
 - **Repo:** source private during development (modal renders a
   `.disclaimer-box` explaining this).
@@ -123,20 +122,22 @@ new entry in `src/content/projects.js` plus a modal in `src/projects/`.
 
 ## Skills (as displayed)
 
-Five cards driven by `src/content/skills.js`, rendered with the
-`.skills-secondary` wrapper (3-column grid):
+Four cards driven by `src/content/skills.js`, rendered with the
+`.skills-primary` wrapper (2-column grid → 2×2 layout):
 
 | Card | Items |
 |------|-------|
-| Languages | Python, Java, TypeScript, JavaScript, Dart, SQL |
+| Languages | Python, Java, JavaScript, SQL |
 | Frameworks & Libraries | React, Spring Boot, FastAPI, FastMCP, Flutter |
-| Data & Infrastructure | PostgreSQL, MongoDB, MySQL, Kafka, Docker, Kubernetes, GitHub Actions |
-| AI & Security | AI agent orchestration, LLM integration, Claude / MCP, OWASP, SAST / DAST, Vulnerability remediation |
-| Practices | Agile, Code Review, Technical Writing, Cross-functional Collaboration |
+| Data & Infrastructure | GitHub Actions, MongoDB, PostgreSQL, Docker |
+| AI & Practices | Claude / MCP, Agile, Code Review, Technical Writing |
 
-Resume source-of-truth lists a few items intentionally omitted here to keep
-each card scannable: GDScript, JFrog Artifactory, Harness, Linux. Add to
-the relevant card if/when they become load-bearing to recruiter fit.
+The list intentionally undersells the resume source-of-truth — TypeScript,
+Dart, MySQL, Kafka, Kubernetes, OWASP, SAST/DAST, vulnerability
+remediation, and several practice/soft-skill items have been pruned so
+each card reads as a confident, recruiter-scannable shortlist rather than
+an exhaustive inventory. Add back items only when they become
+load-bearing to a specific role pitch.
 
 ---
 

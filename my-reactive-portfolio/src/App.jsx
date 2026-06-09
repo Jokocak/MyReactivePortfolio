@@ -2,17 +2,15 @@
 import { useState } from 'react'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { FaCode } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { emailConfig } from "./config/email-config";
-import { FaDatabase } from "react-icons/fa6";
 import { FaWallet } from "react-icons/fa6";
+import { FaDiagramProject } from "react-icons/fa6";
 import emailjs from '@emailjs/browser'
 
 // Local Imports
 import './App.css'
-import DataProductCatalog from "./projects/DataProductCatalog";
-import CoffeeMaker from "./projects/CoffeeMaker";
+import PoppyCox from "./projects/PoppyCox";
 import Clarus from "./projects/Clarus";
 
 // Content
@@ -26,8 +24,7 @@ import { certifications } from "./content/certifications";
 
 const projectIconMap = {
   wallet: <FaWallet />,
-  code: <FaCode />,
-  database: <FaDatabase />,
+  pipeline: <FaDiagramProject />,
 };
 
 function App() {
@@ -98,8 +95,7 @@ function App() {
 
   // project Components
   const projectComponents = {
-    2: <DataProductCatalog />,
-    4: <CoffeeMaker />,
+    7: <PoppyCox />,
     6: <Clarus />,
   };
 
@@ -195,7 +191,7 @@ function App() {
             <h2>Skills</h2>
             <hr />
 
-            <div className="skills-secondary">
+            <div className="skills-primary">
               {skills.map((skill) => (
                 <div key={skill.title} className="card skill-card">
                   <h3>{skill.title}</h3>

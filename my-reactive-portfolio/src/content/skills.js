@@ -1,7 +1,7 @@
 export const skills = [
   {
     title: 'Languages',
-    items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Dart', 'SQL'],
+    items: ['Python', 'Java', 'JavaScript', 'SQL'],
   },
   {
     title: 'Frameworks & Libraries',
@@ -9,34 +9,10 @@ export const skills = [
   },
   {
     title: 'Data & Infrastructure',
-    items: [
-      'PostgreSQL',
-      'MongoDB',
-      'MySQL',
-      'Kafka',
-      'Docker',
-      'Kubernetes',
-      'GitHub Actions',
-    ],
+    items: ['GitHub Actions', 'MongoDB', 'PostgreSQL', 'Docker'],
   },
   {
-    title: 'AI & Security',
-    items: [
-      'AI agent orchestration',
-      'LLM integration',
-      'Claude / MCP',
-      'OWASP',
-      'SAST / DAST',
-      'Vulnerability remediation',
-    ],
-  },
-  {
-    title: 'Practices',
-    items: [
-      'Agile',
-      'Code Review',
-      'Technical Writing',
-      'Cross-functional Collaboration',
-    ],
+    title: 'AI & Practices',
+    items: ['Claude / MCP', 'Agile', 'Code Review', 'Technical Writing'],
   },
 ];
